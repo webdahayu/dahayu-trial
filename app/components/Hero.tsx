@@ -4,6 +4,29 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
+const sparklePositions = [
+  { top: "10%", left: "15%" },
+  { top: "20%", left: "85%" },
+  { top: "30%", left: "25%" },
+  { top: "40%", left: "75%" },
+  { top: "50%", left: "10%" },
+  { top: "60%", left: "90%" },
+  { top: "70%", left: "30%" },
+  { top: "80%", left: "70%" },
+  { top: "15%", left: "50%" },
+  { top: "25%", left: "40%" },
+  { top: "35%", left: "60%" },
+  { top: "45%", left: "20%" },
+  { top: "55%", left: "80%" },
+  { top: "65%", left: "35%" },
+  { top: "75%", left: "65%" },
+  { top: "85%", left: "45%" },
+  { top: "18%", left: "55%" },
+  { top: "28%", left: "12%" },
+  { top: "38%", left: "88%" },
+  { top: "48%", left: "42%" },
+];
+
 export default function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
@@ -23,11 +46,37 @@ export default function Hero() {
         {/* Animated liquid shapes */}
         <motion.div
           style={{ y: y1 }}
-          className="absolute -top-40 -right-40 w-[800px] h-[800px] liquid-shape bg-gradient-radial from-gold/20 via-gold/10 to-transparent blur-3xl"
+          className="absolute -top-40 -right-40 w-[800px] h-[800px] liquid-shape bg-gradient-radial from-gold/20 via-gold/10 to-transparent blur-3xl animate-glow"
         />
         <motion.div
           style={{ y: y2 }}
-          className="absolute -bottom-40 -left-40 w-[600px] h-[600px] liquid-shape bg-gradient-radial from-gold-light/20 via-gold-light/10 to-transparent blur-3xl"
+          className="absolute -bottom-40 -left-40 w-[600px] h-[600px] liquid-shape bg-gradient-radial from-gold-light/20 via-gold-light/10 to-transparent blur-3xl animate-glow"
+        />
+
+        {/* Additional floating orbs */}
+        <motion.div
+          animate={{
+            y: [0, -50, 0],
+            x: [0, 30, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/3 left-1/4 w-64 h-64 bg-gold/10 rounded-full blur-2xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-gold-light/10 rounded-full blur-3xl"
         />
 
         {/* Floating geometric shapes */}
@@ -41,7 +90,7 @@ export default function Hero() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/4 right-1/4 w-32 h-32 border border-gold/20 rounded-[30%]"
+          className="absolute top-1/4 right-1/4 w-32 h-32 border border-gold/20 rounded-[30%] luxury-glow"
           style={{ transform: "rotate(45deg)" }}
         />
         <motion.div
@@ -56,6 +105,29 @@ export default function Hero() {
           }}
           className="absolute bottom-1/3 left-1/3 w-24 h-24 border-2 border-gold-light/10"
         />
+
+        {/* Sparkle particles */}
+        {sparklePositions.map((pos, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut",
+            }}
+            className="absolute w-1 h-1 bg-gold rounded-full"
+            style={{
+              top: pos.top,
+              left: pos.left,
+            }}
+          />
+        ))}
 
         {/* Grid pattern overlay */}
         <div

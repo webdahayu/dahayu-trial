@@ -263,12 +263,42 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-dark">
+    <main className="min-h-screen bg-dark relative overflow-hidden">
       <Navbar />
 
+      {/* Animated Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -30, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-1/4 left-0 w-80 h-80 bg-gold-light/5 rounded-full blur-3xl"
+        />
+      </div>
+
       {/* Back Button */}
-      <div className="pt-32 pb-8 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="pt-32 pb-8 max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.button
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           whileHover={{ x: -5 }}
           onClick={() => router.push("/koleksi")}
           className="flex items-center gap-2 text-cream/70 hover:text-gold transition-colors"
@@ -279,7 +309,7 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Product Detail */}
-      <section className="relative pb-20">
+      <section className="relative pb-20 z-10">
         <div className="grain-overlay" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -291,11 +321,15 @@ export default function ProductDetailPage() {
               transition={{ duration: 0.8 }}
             >
               {/* Main Image */}
-              <div className="relative mb-6 rounded-2xl overflow-hidden border border-gold/20">
-                <img
+              <div className="relative mb-6 rounded-2xl overflow-hidden border border-gold/20 luxury-glow group">
+                <motion.img
+                  key={selectedImage}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="w-full h-[600px] object-cover"
+                  className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Favorite Button */}

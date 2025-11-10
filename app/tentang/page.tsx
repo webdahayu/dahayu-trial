@@ -19,8 +19,36 @@ export default function TentangPage() {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
 
   return (
-    <main className="min-h-screen bg-dark">
+    <main className="min-h-screen bg-dark relative overflow-hidden">
       <Navbar />
+
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{
+            y: [0, -50, 0],
+            x: [0, 30, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -25, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-1/3 left-0 w-80 h-80 bg-gold-light/5 rounded-full blur-3xl"
+        />
+      </div>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -30,7 +58,7 @@ export default function TentangPage() {
           <div className="absolute inset-0 bg-linear-to-br from-dark via-green-dark/20 to-dark" />
           <motion.div
             style={{ y: y1 }}
-            className="absolute top-20 right-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
+            className="absolute top-20 right-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-glow"
           />
         </div>
 
@@ -42,7 +70,12 @@ export default function TentangPage() {
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-16 h-px bg-linear-to-r from-transparent via-gold to-transparent" />
-              <Sparkles className="w-6 h-6 text-gold" />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              >
+                <Sparkles className="w-6 h-6 text-gold" />
+              </motion.div>
               <div className="w-16 h-px bg-linear-to-r from-transparent via-gold to-transparent" />
             </div>
 
@@ -66,22 +99,28 @@ export default function TentangPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative perspective-container"
             >
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                className="relative rounded-2xl overflow-hidden luxury-glow"
+              >
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.7 }}
                   src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop"
                   alt="Handcrafted Gold Jewelry"
                   className="w-full h-[600px] object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/20 to-transparent" />
-              </div>
+              </motion.div>
 
               {/* Floating card */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-10 -right-10 bg-gold p-8 rounded-2xl shadow-2xl max-w-xs"
+                className="absolute -bottom-10 -right-10 bg-gold p-8 rounded-2xl shadow-2xl max-w-xs luxury-glow"
               >
                 <div className="text-dark text-4xl font-bold mb-2">27+</div>
                 <div className="text-dark/80 font-medium">
@@ -129,20 +168,32 @@ export default function TentangPage() {
               </div>
 
               <div className="flex gap-4 pt-4">
-                <div className="text-center">
+                <motion.div
+                  className="text-center"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="text-3xl font-bold text-gold mb-1">1000+</div>
                   <div className="text-cream/60 text-sm">Pelanggan Puas</div>
-                </div>
+                </motion.div>
                 <div className="w-px bg-gold/20" />
-                <div className="text-center">
+                <motion.div
+                  className="text-center"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="text-3xl font-bold text-gold mb-1">500+</div>
                   <div className="text-cream/60 text-sm">Desain Eksklusif</div>
-                </div>
+                </motion.div>
                 <div className="w-px bg-gold/20" />
-                <div className="text-center">
+                <motion.div
+                  className="text-center"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="text-3xl font-bold text-gold mb-1">100%</div>
                   <div className="text-cream/60 text-sm">Emas Asli</div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -172,14 +223,19 @@ export default function TentangPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
               className="relative"
             >
-              <div className="bg-linear-to-br from-gold/10 to-transparent p-10 rounded-3xl border border-gold/20 h-full">
-                <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto border-2 border-gold/40">
+              <div className="bg-linear-to-br from-gold/10 to-transparent p-10 rounded-3xl border border-gold/20 h-full luxury-glow perspective-container">
+                <motion.div
+                  className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto border-2 border-gold/40"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
                   <span className="text-4xl font-serif font-bold text-gold">
                     1
                   </span>
-                </div>
+                </motion.div>
                 <h3 className="text-2xl font-serif font-bold text-cream mb-4 text-center">
                   Kejujuran adalah Mahkota
                 </h3>
@@ -198,14 +254,19 @@ export default function TentangPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
+              whileHover={{ y: -10, scale: 1.02 }}
               className="relative"
             >
-              <div className="bg-linear-to-br from-gold/10 to-transparent p-10 rounded-3xl border border-gold/20 h-full">
-                <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto border-2 border-gold/40">
+              <div className="bg-linear-to-br from-gold/10 to-transparent p-10 rounded-3xl border border-gold/20 h-full luxury-glow perspective-container">
+                <motion.div
+                  className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto border-2 border-gold/40"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
                   <span className="text-4xl font-serif font-bold text-gold">
                     2
                   </span>
-                </div>
+                </motion.div>
                 <h3 className="text-2xl font-serif font-bold text-cream mb-4 text-center">
                   Kasih Sayang dalam Setiap Detil
                 </h3>
@@ -224,14 +285,19 @@ export default function TentangPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
+              whileHover={{ y: -10, scale: 1.02 }}
               className="relative"
             >
-              <div className="bg-linear-to-br from-gold/10 to-transparent p-10 rounded-3xl border border-gold/20 h-full">
-                <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto border-2 border-gold/40">
+              <div className="bg-linear-to-br from-gold/10 to-transparent p-10 rounded-3xl border border-gold/20 h-full luxury-glow perspective-container">
+                <motion.div
+                  className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto border-2 border-gold/40"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
                   <span className="text-4xl font-serif font-bold text-gold">
                     3
                   </span>
-                </div>
+                </motion.div>
                 <h3 className="text-2xl font-serif font-bold text-cream mb-4 text-center">
                   Warisan untuk Generasi
                 </h3>
@@ -251,16 +317,30 @@ export default function TentangPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
             className="mt-16 relative"
           >
-            <div className="max-w-4xl mx-auto bg-dark-lighter p-12 rounded-3xl border border-gold/20 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl" />
+            <div className="max-w-4xl mx-auto bg-dark-lighter p-12 rounded-3xl border border-gold/20 relative overflow-hidden luxury-glow perspective-container">
+              <motion.div
+                className="absolute top-0 left-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute bottom-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+              />
 
               <div className="relative z-10">
-                <div className="text-gold text-6xl font-serif mb-6 text-center opacity-50">
+                <motion.div
+                  className="text-gold text-6xl font-serif mb-6 text-center opacity-50"
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 6, repeat: Infinity }}
+                >
                   "
-                </div>
+                </motion.div>
                 <p className="text-cream/90 text-xl md:text-2xl font-light text-center leading-relaxed mb-8 italic">
                   Kami memulai dengan satu impian sederhana: membuat perhiasan
                   yang tidak hanya indah, tetapi juga bermakna. Setiap pelanggan
@@ -330,10 +410,15 @@ export default function TentangPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-dark p-8 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-dark p-8 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all luxury-glow"
               >
-                <value.icon className="w-12 h-12 text-gold mb-4" />
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <value.icon className="w-12 h-12 text-gold mb-4" />
+                </motion.div>
                 <h3 className="text-xl font-serif font-bold text-cream mb-3">
                   {value.title}
                 </h3>
@@ -396,21 +481,28 @@ export default function TentangPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
+                whileHover={{ y: -10 }}
                 className="group relative"
               >
-                <div className="relative rounded-2xl overflow-hidden mb-6">
-                  <img
+                <div className="relative rounded-2xl overflow-hidden mb-6 perspective-container luxury-glow">
+                  <motion.img
                     src={process.image}
                     alt={process.title}
-                    className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-80 object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.7 }}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent" />
 
-                  <div className="absolute top-6 left-6 w-16 h-16 bg-gold rounded-full flex items-center justify-center">
+                  <motion.div
+                    className="absolute top-6 left-6 w-16 h-16 bg-gold rounded-full flex items-center justify-center"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
                     <span className="text-dark text-xl font-bold">
                       {process.step}
                     </span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <h3 className="text-2xl font-serif font-bold text-cream mb-3">
@@ -466,11 +558,16 @@ export default function TentangPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.05 }}
                 className="text-center p-8"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gold/10 rounded-full mb-6 border-2 border-gold/30">
+                <motion.div
+                  className="inline-flex items-center justify-center w-20 h-20 bg-gold/10 rounded-full mb-6 border-2 border-gold/30"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
                   <reason.icon className="w-10 h-10 text-gold" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-serif font-bold text-cream mb-3">
                   {reason.title}
                 </h3>

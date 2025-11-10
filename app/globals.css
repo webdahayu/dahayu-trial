@@ -39,6 +39,26 @@ body {
   }
 }
 
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes subtlePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -58,6 +78,52 @@ body {
   }
 }
 
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(198, 166, 100, 0.3),
+      0 0 40px rgba(198, 166, 100, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(198, 166, 100, 0.5),
+      0 0 80px rgba(198, 166, 100, 0.3);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .grain-overlay {
   position: fixed;
   top: 0;
@@ -70,13 +136,61 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #e3c16f 0%, #c6a664 50%, #8c715a 100%);
+  background: linear-gradient(
+    135deg,
+    #e3c16f 0%,
+    #c6a664 25%,
+    #e3c16f 50%,
+    #c6a664 75%,
+    #8c715a 100%
+  );
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+.luxury-glow {
+  box-shadow: 0 0 20px rgba(198, 166, 100, 0.15),
+    0 0 40px rgba(198, 166, 100, 0.1), 0 0 80px rgba(198, 166, 100, 0.05);
 }
 
 .liquid-shape {
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   animation: morph 8s ease-in-out infinite;
+}
+
+.glass-effect {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(198, 166, 100, 0.1);
+}
+
+.perspective-container {
+  perspective: 1000px;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 4s ease-in-out infinite;
+}
+
+/* Smooth scroll */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
 }

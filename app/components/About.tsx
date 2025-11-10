@@ -51,9 +51,15 @@ export default function About() {
       <div className="absolute inset-0">
         <motion.div
           style={{ y }}
+          animate={{ x: [0, 30, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-3xl"
         />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gold-light/5 rounded-full blur-3xl" />
+        <motion.div
+          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gold-light/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -78,11 +84,13 @@ export default function About() {
                 className="absolute -top-6 -left-6 w-full h-full border-2 border-gold/30 rounded-[40px]"
               />
 
-              <div className="relative h-full rounded-[40px] overflow-hidden border border-gold/20">
-                <img
+              <div className="relative h-full rounded-[40px] overflow-hidden border border-gold/20 luxury-glow perspective-container">
+                <motion.img
                   src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop"
                   alt="Handcrafted Gold Jewelry"
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7 }}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/20 to-transparent" />
 
@@ -92,9 +100,10 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.4 }}
+                  whileHover={{ y: -5 }}
                   className="absolute bottom-8 left-8 right-8"
                 >
-                  <div className="glass-effect p-6 rounded-2xl">
+                  <div className="glass-effect p-6 rounded-2xl luxury-glow">
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <p className="text-gold text-4xl font-serif font-bold">
@@ -191,12 +200,17 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group p-6 glass-effect rounded-2xl hover:bg-gold/5 transition-all duration-500"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="group p-6 glass-effect rounded-2xl hover:bg-gold/5 transition-all duration-500 luxury-glow"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
+                    <motion.div
+                      className="shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
                       <value.icon className="w-6 h-6 text-gold" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="text-lg font-serif font-semibold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
                         {value.title}
@@ -218,9 +232,11 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-12"
             >
-              <a
+              <motion.a
                 href="#koleksi"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-dark font-semibold rounded-full hover:bg-gold-light transition-all duration-300 transform hover:scale-105"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-dark font-semibold rounded-full hover:bg-gold-light transition-all duration-300 luxury-glow"
               >
                 <span>Lihat Cerita Kami</span>
                 <motion.div
@@ -229,7 +245,7 @@ export default function About() {
                 >
                   →
                 </motion.div>
-              </a>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

@@ -38,8 +38,16 @@ export default function Testimonials() {
     <section className="relative py-32 px-4 md:px-8 lg:px-16 bg-dark-lighter overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-gold-light/20 rounded-full blur-3xl" />
+        <motion.div
+          className="absolute top-0 left-1/3 w-96 h-96 bg-gold/20 rounded-full blur-3xl"
+          animate={{ y: [0, -50, 0], x: [0, 30, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-1/3 w-96 h-96 bg-gold-light/20 rounded-full blur-3xl"
+          animate={{ y: [0, 50, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -85,17 +93,28 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group relative p-8 glass-effect rounded-3xl hover:bg-gold/5 transition-all duration-500"
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group relative p-8 glass-effect rounded-3xl hover:bg-gold/5 transition-all duration-500 luxury-glow perspective-container"
             >
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6">
+              <motion.div
+                className="absolute top-6 right-6"
+                whileHover={{ rotate: 180, scale: 1.2 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Quote className="w-12 h-12 text-gold/20 group-hover:text-gold/40 transition-colors duration-300" />
-              </div>
+              </motion.div>
 
               {/* Rating */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Star className="w-5 h-5 fill-gold text-gold" />
+                  </motion.div>
                 ))}
               </div>
 
@@ -106,10 +125,12 @@ export default function Testimonials() {
 
               {/* Customer Info */}
               <div className="flex items-center gap-4 pt-6 border-t border-gold/10">
-                <img
+                <motion.img
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-14 h-14 rounded-full object-cover border-2 border-gold/30"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
                 />
                 <div>
                   <h4 className="font-serif font-semibold text-cream text-lg">
@@ -147,7 +168,8 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 glass-effect rounded-2xl"
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="p-6 glass-effect rounded-2xl luxury-glow"
             >
               <h4 className="text-5xl font-serif font-bold text-gradient mb-2">
                 {stat.value}

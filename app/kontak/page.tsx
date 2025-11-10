@@ -42,8 +42,22 @@ export default function KontakPage() {
   };
 
   return (
-    <main className="min-h-screen bg-dark">
+    <main className="min-h-screen bg-dark relative overflow-hidden">
       <Navbar />
+
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{ y: [0, -80, 0], x: [0, 50, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ y: [0, 60, 0], x: [0, -40, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gold-light/15 rounded-full blur-3xl"
+        />
+      </div>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -54,7 +68,7 @@ export default function KontakPage() {
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity }}
-            className="absolute top-20 right-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
+            className="absolute top-20 right-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-glow"
           />
         </div>
 
@@ -64,9 +78,13 @@ export default function KontakPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
+            <motion.h1
+              className="text-5xl md:text-7xl font-serif font-bold mb-6"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               <span className="text-gradient">Hubungi Kami</span>
-            </h1>
+            </motion.h1>
             <p className="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto font-light">
               Kami siap membantu Anda menemukan perhiasan impian
             </p>
@@ -128,12 +146,17 @@ export default function KontakPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex gap-4 p-6 bg-dark-lighter rounded-2xl border border-gold/10 hover:border-gold/30 transition-all group"
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="flex gap-4 p-6 bg-dark-lighter rounded-2xl border border-gold/10 hover:border-gold/30 transition-all group luxury-glow"
                   >
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center border border-gold/30 group-hover:bg-gold/20 transition-colors">
+                      <motion.div
+                        className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center border border-gold/30 group-hover:bg-gold/20 transition-colors"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.6 }}
+                      >
                         <item.icon className="w-7 h-7 text-gold" />
-                      </div>
+                      </motion.div>
                     </div>
                     <div className="flex-1">
                       <div className="text-cream/60 text-sm mb-1">
@@ -158,12 +181,21 @@ export default function KontakPage() {
 
               {/* WhatsApp CTA */}
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppDirect}
-                className="w-full bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-green-600/20"
+                className="w-full bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-green-600/30 luxury-glow"
               >
-                <MessageCircle className="w-6 h-6" />
+                <motion.div
+                  animate={{ rotate: [0, 15, -15, 0] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <MessageCircle className="w-6 h-6" />
+                </motion.div>
                 Chat via WhatsApp
               </motion.button>
             </motion.div>
@@ -175,7 +207,7 @@ export default function KontakPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-dark-lighter p-8 md:p-10 rounded-3xl border border-gold/10">
+              <div className="bg-dark-lighter p-8 md:p-10 rounded-3xl border border-gold/10 luxury-glow perspective-container">
                 <h3 className="text-2xl font-serif font-bold text-cream mb-6">
                   Kirim Pesan
                 </h3>
@@ -185,7 +217,7 @@ export default function KontakPage() {
                     <label htmlFor="name" className="block text-cream/70 mb-2">
                       Nama Lengkap
                     </label>
-                    <input
+                    <motion.input
                       type="text"
                       id="name"
                       required
@@ -193,6 +225,7 @@ export default function KontakPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
+                      whileFocus={{ scale: 1.02, borderColor: "#c6a664" }}
                       className="w-full px-4 py-3 bg-dark border border-gold/20 rounded-xl text-cream focus:border-gold focus:outline-none transition-colors"
                       placeholder="Masukkan nama Anda"
                     />
@@ -202,7 +235,7 @@ export default function KontakPage() {
                     <label htmlFor="email" className="block text-cream/70 mb-2">
                       Email
                     </label>
-                    <input
+                    <motion.input
                       type="email"
                       id="email"
                       required
@@ -210,6 +243,7 @@ export default function KontakPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
+                      whileFocus={{ scale: 1.02, borderColor: "#c6a664" }}
                       className="w-full px-4 py-3 bg-dark border border-gold/20 rounded-xl text-cream focus:border-gold focus:outline-none transition-colors"
                       placeholder="nama@email.com"
                     />
@@ -219,7 +253,7 @@ export default function KontakPage() {
                     <label htmlFor="phone" className="block text-cream/70 mb-2">
                       Nomor Telepon
                     </label>
-                    <input
+                    <motion.input
                       type="tel"
                       id="phone"
                       required
@@ -227,6 +261,7 @@ export default function KontakPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
+                      whileFocus={{ scale: 1.02, borderColor: "#c6a664" }}
                       className="w-full px-4 py-3 bg-dark border border-gold/20 rounded-xl text-cream focus:border-gold focus:outline-none transition-colors"
                       placeholder="+62 812-3456-7890"
                     />
@@ -239,7 +274,7 @@ export default function KontakPage() {
                     >
                       Pesan
                     </label>
-                    <textarea
+                    <motion.textarea
                       id="message"
                       required
                       rows={5}
@@ -247,6 +282,7 @@ export default function KontakPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
+                      whileFocus={{ scale: 1.02, borderColor: "#c6a664" }}
                       className="w-full px-4 py-3 bg-dark border border-gold/20 rounded-xl text-cream focus:border-gold focus:outline-none transition-colors resize-none"
                       placeholder="Tuliskan pesan Anda di sini..."
                     />
@@ -254,11 +290,16 @@ export default function KontakPage() {
 
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.02, y: -3 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gold hover:bg-gold-light text-dark px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-gold/20"
+                    className="w-full bg-gold hover:bg-gold-light text-dark px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-gold/30 luxury-glow"
                   >
-                    <Send className="w-5 h-5" />
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Send className="w-5 h-5" />
+                    </motion.div>
                     Kirim Pesan
                   </motion.button>
                 </form>
@@ -275,7 +316,9 @@ export default function KontakPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl overflow-hidden border border-gold/20"
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-3xl overflow-hidden border border-gold/20 luxury-glow perspective-container"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.2076870524744!2d115.15906431478246!3d-8.680377893772972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2409b0e5e80db%3A0xe27334e8ccb9b32!2sSeminyak%2C%20Bali!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"

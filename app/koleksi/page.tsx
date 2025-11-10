@@ -109,25 +109,39 @@ export default function KoleksiPage() {
       : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <main className="min-h-screen bg-dark">
+    <main className="min-h-screen bg-dark relative overflow-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20">
         <div className="grain-overlay" />
 
         {/* Animated background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-linear-to-br from-dark via-green-dark/20 to-dark opacity-90" />
           <motion.div
-            animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
-            transition={{ duration: 20, repeat: Infinity }}
-            className="absolute top-20 right-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 30, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-0 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
           />
           <motion.div
-            animate={{ scale: [1.2, 1, 1.2], rotate: [90, 0, 90] }}
-            transition={{ duration: 15, repeat: Infinity }}
-            className="absolute bottom-20 left-20 w-80 h-80 bg-gold-light/10 rounded-full blur-3xl"
+            animate={{
+              y: [0, 50, 0],
+              x: [0, -40, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-gold-light/10 rounded-full blur-3xl"
           />
         </div>
 
@@ -185,28 +199,43 @@ export default function KoleksiPage() {
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -10 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="perspective-container"
               >
                 <Link href={`/produk/${product.id}`}>
-                  <div className="group relative bg-dark-lighter rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer">
+                  <div className="group relative bg-dark-lighter rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer luxury-glow">
                     {/* Image */}
                     <div className="relative h-80 overflow-hidden">
-                      <img
+                      <motion.img
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ duration: 0.6 }}
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent opacity-60" />
+
+                      {/* Shimmer effect */}
+                      <motion.div
+                        initial={{ x: "-100%" }}
+                        whileHover={{ x: "100%" }}
+                        transition={{ duration: 0.8 }}
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/20 to-transparent"
+                      />
 
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                       {/* Category badge */}
-                      <div className="absolute top-4 left-4 px-4 py-2 bg-dark/80 backdrop-blur-sm rounded-full border border-gold/30">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="absolute top-4 left-4 px-4 py-2 bg-dark/80 backdrop-blur-sm rounded-full border border-gold/30"
+                      >
                         <span className="text-gold text-sm font-medium">
                           {product.category}
                         </span>
-                      </div>
+                      </motion.div>
                     </div>
 
                     {/* Content */}
