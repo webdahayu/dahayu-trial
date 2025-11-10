@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const products = [
   {
@@ -11,7 +12,7 @@ const products = [
     price: "Rp 8.500.000",
     category: "Kalung",
     image:
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop",
     description: "Keindahan dewi dalam setiap detail",
   },
   {
@@ -20,7 +21,7 @@ const products = [
     price: "Rp 3.200.000",
     category: "Anting",
     image:
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80",
+      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=800&q=80&fit=crop",
     description: "Elegan seperti bunga melati",
   },
   {
@@ -29,7 +30,7 @@ const products = [
     price: "Rp 5.800.000",
     category: "Gelang",
     image:
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80",
+      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop",
     description: "Pesona frangipani Bali",
   },
   {
@@ -38,7 +39,7 @@ const products = [
     price: "Rp 4.500.000",
     category: "Cincin",
     image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80",
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80&auto=format&fit=crop",
     description: "Cahaya matahari dalam emas",
   },
   {
@@ -47,7 +48,7 @@ const products = [
     price: "Rp 9.200.000",
     category: "Kalung",
     image:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&auto=format&fit=crop",
     description: "Spiritual dan menawan",
   },
   {
@@ -56,7 +57,7 @@ const products = [
     price: "Rp 3.800.000",
     category: "Anting",
     image:
-      "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=800&q=80",
+      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80&auto=format&fit=crop",
     description: "Permata yang berkilau abadi",
   },
 ];
@@ -105,109 +106,111 @@ function ProductCard({
       }}
       className="group perspective-container"
     >
-      <motion.div
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        className="relative bg-dark-lighter rounded-3xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500"
-      >
-        {/* Image Container */}
-        <div className="relative h-[400px] overflow-hidden">
-          <motion.img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover"
-            animate={{
-              scale: isHovered ? 1.1 : 1,
-            }}
-            transition={{ duration: 0.6, ease: [0.21, 0.45, 0.27, 0.9] }}
-          />
+      <Link href={`/produk/${product.id}`}>
+        <motion.div
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d",
+          }}
+          className="relative bg-dark-lighter rounded-3xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer"
+        >
+          {/* Image Container */}
+          <div className="relative h-[400px] overflow-hidden">
+            <motion.img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover"
+              animate={{
+                scale: isHovered ? 1.1 : 1,
+              }}
+              transition={{ duration: 0.6, ease: [0.21, 0.45, 0.27, 0.9] }}
+            />
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-60" />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-60" />
 
-          {/* Floating number */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            className="absolute top-6 right-6 w-16 h-16 rounded-full glass-effect flex items-center justify-center"
-          >
-            <span className="text-gold text-2xl font-serif font-bold">
-              {index + 1}
-            </span>
-          </motion.div>
-
-          {/* Hover Overlay */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-gold-dark/20 backdrop-blur-sm flex items-center justify-center gap-4"
-          >
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-14 h-14 rounded-full glass-effect flex items-center justify-center text-gold hover:bg-gold hover:text-dark transition-all duration-300"
+            {/* Floating number */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isHovered ? 1 : 0 }}
+              className="absolute top-6 right-6 w-16 h-16 rounded-full glass-effect flex items-center justify-center"
             >
-              <Eye size={20} />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-14 h-14 rounded-full glass-effect flex items-center justify-center text-gold hover:bg-gold hover:text-dark transition-all duration-300"
-            >
-              <ShoppingBag size={20} />
-            </motion.button>
-          </motion.div>
-
-          {/* Category Badge */}
-          <div className="absolute top-6 left-6">
-            <div className="px-4 py-2 glass-effect rounded-full">
-              <span className="text-gold text-xs font-medium tracking-wider uppercase">
-                {product.category}
+              <span className="text-gold text-2xl font-serif font-bold">
+                {index + 1}
               </span>
+            </motion.div>
+
+            {/* Hover Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isHovered ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-gold-dark/20 backdrop-blur-sm flex items-center justify-center gap-4"
+            >
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-14 h-14 rounded-full glass-effect flex items-center justify-center text-gold hover:bg-gold hover:text-dark transition-all duration-300"
+              >
+                <Eye size={20} />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-14 h-14 rounded-full glass-effect flex items-center justify-center text-gold hover:bg-gold hover:text-dark transition-all duration-300"
+              >
+                <ShoppingBag size={20} />
+              </motion.button>
+            </motion.div>
+
+            {/* Category Badge */}
+            <div className="absolute top-6 left-6">
+              <div className="px-4 py-2 glass-effect rounded-full">
+                <span className="text-gold text-xs font-medium tracking-wider uppercase">
+                  {product.category}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Content */}
-        <div className="p-8">
-          <motion.div
-            animate={{
-              y: isHovered ? -5 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
-              {product.name}
-            </h3>
-            <p className="text-cream/50 text-sm mb-4 font-sans">
-              {product.description}
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-gold-light text-xl font-semibold">
-                {product.price}
-              </span>
-              <motion.div
-                className="w-8 h-8"
-                animate={{ rotate: isHovered ? 45 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="w-full h-full border-2 border-gold/30 group-hover:border-gold transform rotate-45" />
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
+          {/* Content */}
+          <div className="p-8">
+            <motion.div
+              animate={{
+                y: isHovered ? -5 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
+                {product.name}
+              </h3>
+              <p className="text-cream/50 text-sm mb-4 font-sans">
+                {product.description}
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-gold-light text-xl font-semibold">
+                  {product.price}
+                </span>
+                <motion.div
+                  className="w-8 h-8"
+                  animate={{ rotate: isHovered ? 45 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="w-full h-full border-2 border-gold/30 group-hover:border-gold transform rotate-45" />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
 
-        {/* Decorative corner elements */}
-        <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold/20 group-hover:border-gold/50 transition-colors duration-500" />
-        <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold/20 group-hover:border-gold/50 transition-colors duration-500" />
-      </motion.div>
+          {/* Decorative corner elements */}
+          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold/20 group-hover:border-gold/50 transition-colors duration-500" />
+          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold/20 group-hover:border-gold/50 transition-colors duration-500" />
+        </motion.div>
+      </Link>
     </motion.div>
   );
 }
@@ -282,8 +285,8 @@ export default function FeaturedCollection() {
           transition={{ duration: 0.8 }}
           className="text-center mt-20"
         >
-          <a
-            href="#"
+          <Link
+            href="/koleksi"
             className="group inline-flex items-center gap-4 px-12 py-6 bg-transparent border-2 border-gold/30 text-gold font-semibold rounded-full hover:bg-gold hover:text-dark hover:border-gold transition-all duration-500 transform hover:scale-105"
           >
             <span className="tracking-wider">Lihat Semua Koleksi</span>
@@ -292,7 +295,7 @@ export default function FeaturedCollection() {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-6 h-6 border-2 border-current transform rotate-45"
             />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

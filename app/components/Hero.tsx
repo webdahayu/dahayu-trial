@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -130,22 +131,20 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 mt-12"
         >
-          <a
-            href="#koleksi"
-            className="group relative px-10 py-5 bg-gold text-dark font-semibold rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105"
-          >
-            <span className="relative z-10">Jelajahi Koleksi</span>
-            <div className="absolute inset-0 bg-gold-light transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-          </a>
-          <a
-            href="#tentang"
-            className="group relative px-10 py-5 bg-transparent border-2 border-gold/30 text-cream font-semibold rounded-full overflow-hidden backdrop-blur-sm hover:border-gold transition-all duration-500 transform hover:scale-105"
-          >
-            <span className="relative z-10 group-hover:text-gold-light transition-colors duration-300">
-              Tentang Kami
-            </span>
-            <div className="absolute inset-0 bg-gold/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right" />
-          </a>
+          <Link href="/koleksi">
+            <div className="group relative px-10 py-5 bg-gold text-dark font-semibold rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 cursor-pointer">
+              <span className="relative z-10">Jelajahi Koleksi</span>
+              <div className="absolute inset-0 bg-gold-light transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            </div>
+          </Link>
+          <Link href="/tentang">
+            <div className="group relative px-10 py-5 bg-transparent border-2 border-gold/30 text-cream font-semibold rounded-full overflow-hidden backdrop-blur-sm hover:border-gold transition-all duration-500 transform hover:scale-105 cursor-pointer">
+              <span className="relative z-10 group-hover:text-gold-light transition-colors duration-300">
+                Tentang Kami
+              </span>
+              <div className="absolute inset-0 bg-gold/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right" />
+            </div>
+          </Link>
         </motion.div>
 
         {/* Decorative line bottom */}

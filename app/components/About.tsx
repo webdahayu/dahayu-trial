@@ -80,11 +80,11 @@ export default function About() {
 
               <div className="relative h-full rounded-[40px] overflow-hidden border border-gold/20">
                 <img
-                  src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&q=80"
-                  alt="Artisan Jewelry Making"
+                  src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop"
+                  alt="Handcrafted Gold Jewelry"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/20 to-transparent" />
 
                 {/* Floating stats card */}
                 <motion.div
@@ -159,24 +159,26 @@ export default function About() {
 
             <div className="space-y-6 text-cream/70 text-lg leading-relaxed font-sans mb-12">
               <p>
-                Dahayu Jewelry lahir dari kecintaan mendalam terhadap keindahan
-                alam Bali dan tradisi kerajinan emas yang telah diwariskan
-                turun-temurun selama berabad-abad.
+                Dahayu Jewelry didirikan oleh tiga ibu rumah tangga luar
+                biasa—Ibu Wayan, Ibu Made, dan Ibu Ketut—yang memulai dari ruang
+                tamu kecil di Seminyak tahun 1998. Dengan modal kepercayaan dan
+                keahlian warisan keluarga, kami bertekad menghadirkan keindahan
+                perhiasan emas Bali yang otentik.
               </p>
               <p>
-                Setiap perhiasan kami adalah hasil karya tangan terampil
-                pengrajin Bali yang menggabungkan teknik tradisional dengan
-                desain kontemporer. Kami percaya bahwa perhiasan bukan sekadar
-                aksesori, tetapi sebuah{" "}
+                Sebagai ibu, kami memahami bahwa perhiasan bukan sekadar
+                aksesori, tetapi simbol{" "}
                 <span className="text-gold-light">
-                  karya seni yang menceritakan kisah
-                </span>{" "}
-                alam dan spiritualitas.
+                  kenangan, warisan, dan cinta yang abadi
+                </span>
+                . Setiap karya dibuat dengan kesabaran dan kelembutan yang sama
+                seperti kami merawat keluarga—penuh cinta dan perhatian detail.
               </p>
               <p>
-                Dari dedaunan tropis hingga bunga frangipani yang suci, setiap
-                elemen dalam desain kami terinspirasi oleh keajaiban alam pulau
-                dewata.
+                Dari satu perhiasan per minggu, kini kami melayani ribuan
+                pelanggan di seluruh dunia, tetap memegang teguh prinsip
+                kejujuran, kualitas premium, dan warisan untuk generasi
+                mendatang.
               </p>
             </div>
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,10 +19,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Beranda", href: "#" },
-    { name: "Koleksi", href: "#koleksi" },
-    { name: "Tentang", href: "#tentang" },
-    { name: "Kontak", href: "#kontak" },
+    { name: "Beranda", href: "/" },
+    { name: "Koleksi", href: "/koleksi" },
+    { name: "Tentang", href: "/tentang" },
+    { name: "Kontak", href: "/kontak" },
   ];
 
   return (
@@ -85,30 +86,30 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-12">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <span
-                    className={`font-sans font-medium text-sm tracking-wider transition-colors duration-300 ${
-                      isScrolled
-                        ? "text-cream/80 hover:text-gold"
-                        : "text-cream/70 hover:text-gold-light"
-                    }`}
-                  >
-                    {link.name}
-                  </span>
+                <Link key={link.name} href={link.href}>
                   <motion.div
-                    className="absolute -bottom-1 left-0 h-[1px] bg-gold"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group relative cursor-pointer"
+                  >
+                    <span
+                      className={`font-sans font-medium text-sm tracking-wider transition-colors duration-300 ${
+                        isScrolled
+                          ? "text-cream/80 hover:text-gold"
+                          : "text-cream/70 hover:text-gold-light"
+                      }`}
+                    >
+                      {link.name}
+                    </span>
+                    <motion.div
+                      className="absolute -bottom-1 left-0 h-px bg-gold"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.div>
+                </Link>
               ))}
 
               {/* CTA Button */}
