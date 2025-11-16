@@ -23,6 +23,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Beranda", href: "/" },
     { name: "Koleksi", href: "/koleksi" },
+    { name: "Blog", href: "/blog" },
     { name: "Tentang", href: "/tentang" },
     { name: "Kontak", href: "/kontak" },
   ];
@@ -80,8 +81,8 @@ export default function Navbar() {
                           isActive
                             ? "text-gold"
                             : isScrolled
-                            ? "text-cream/80 hover:text-gold"
-                            : "text-cream/70 hover:text-gold-light"
+                              ? "text-cream/80 hover:text-gold"
+                              : "text-cream/70 hover:text-gold-light"
                         }`}
                       >
                         {link.name}
