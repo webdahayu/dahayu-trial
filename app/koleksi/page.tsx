@@ -6,99 +6,9 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Sparkles } from "lucide-react";
+import { products } from "../data/products";
 
-const products = [
-  {
-    id: 1,
-    name: "Kalung Dewi",
-    price: "Rp 8.500.000",
-    category: "Kalung",
-    image:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop",
-    description: "Keindahan dewi dalam setiap detail",
-    material: "Emas 24K",
-    weight: "15.5 gram",
-  },
-  {
-    id: 2,
-    name: "Anting Melati",
-    price: "Rp 3.200.000",
-    category: "Anting",
-    image:
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=800&q=80&fit=crop",
-    description: "Elegan seperti bunga melati",
-    material: "Emas 22K",
-    weight: "8.2 gram",
-  },
-  {
-    id: 3,
-    name: "Gelang Frangipani",
-    price: "Rp 5.800.000",
-    category: "Gelang",
-    image:
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop",
-    description: "Pesona frangipani Bali",
-    material: "Emas 22K",
-    weight: "12.3 gram",
-  },
-  {
-    id: 4,
-    name: "Cincin Surya",
-    price: "Rp 4.500.000",
-    category: "Cincin",
-    image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80&auto=format&fit=crop",
-    description: "Cahaya matahari dalam emas",
-    material: "Emas 24K",
-    weight: "10.8 gram",
-  },
-  {
-    id: 5,
-    name: "Kalung Lotus",
-    price: "Rp 9.200.000",
-    category: "Kalung",
-    image:
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&auto=format&fit=crop",
-    description: "Simbol kemurnian dan keanggunan",
-    material: "Emas 24K",
-    weight: "18.7 gram",
-  },
-  {
-    id: 6,
-    name: "Gelang Permata",
-    price: "Rp 12.500.000",
-    category: "Gelang",
-    image:
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80&auto=format&fit=crop",
-    description: "Kilau permata yang mempesona",
-    material: "Emas 24K + Berlian",
-    weight: "14.5 gram",
-  },
-  {
-    id: 7,
-    name: "Anting Bintang",
-    price: "Rp 4.800.000",
-    category: "Anting",
-    image:
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80&auto=format&fit=crop",
-    description: "Bercahaya seperti bintang",
-    material: "Emas 22K",
-    weight: "9.5 gram",
-  },
-  {
-    id: 8,
-    name: "Cincin Engagement",
-    price: "Rp 15.000.000",
-    category: "Cincin",
-    image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&q=80&fit=crop",
-    description: "Lambang cinta abadi",
-    material: "Emas 24K + Berlian",
-    weight: "11.2 gram",
-  },
-];
-
-const categories = ["Semua", "Kalung", "Anting", "Gelang", "Cincin"];
+const categories = ["Semua", "Anting", "Cincin", "Bros"];
 
 export default function KoleksiPage() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
@@ -204,13 +114,13 @@ export default function KoleksiPage() {
                 className="perspective-container"
               >
                 <Link href={`/produk/${product.id}`}>
-                  <div className="group relative bg-dark-lighter rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer luxury-glow">
+                  <div className="group relative bg-dark-lighter rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer luxury-glow flex flex-col h-full">
                     {/* Image */}
-                    <div className="relative h-80 overflow-hidden">
+                    <div className="relative h-80 overflow-hidden shrink-0">
                       <motion.img
                         whileHover={{ scale: 1.15 }}
                         transition={{ duration: 0.6 }}
-                        src={product.image}
+                        src={product.images?.[0] || product.image}
                         alt={product.name}
                         className="w-full h-full object-cover"
                       />
@@ -239,15 +149,15 @@ export default function KoleksiPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="p-6 flex flex-col flex-1">
                       <h3 className="text-xl font-serif font-bold text-cream mb-2 group-hover:text-gold transition-colors">
                         {product.name}
                       </h3>
-                      <p className="text-cream/60 text-sm mb-4">
+                      <p className="text-cream/60 text-sm mb-4 line-clamp-2 flex-1">
                         {product.description}
                       </p>
 
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-auto">
                         <span className="text-gold text-lg font-semibold">
                           {product.price}
                         </span>

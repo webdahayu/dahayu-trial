@@ -6,221 +6,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { ShoppingBag, Share2, Heart, ArrowLeft, Check } from "lucide-react";
 import { useState } from "react";
-
-const products = [
-  {
-    id: 1,
-    name: "Kalung Dewi",
-    price: "Rp 8.500.000",
-    priceNumber: 8500000,
-    category: "Kalung",
-    images: [
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Keindahan dewi dalam setiap detail. Kalung eksklusif yang menggabungkan keanggunan desain tradisional Bali dengan sentuhan modern yang elegan.",
-    material: "Emas 24K",
-    weight: "15.5 gram",
-    dimensions: "45cm panjang",
-    features: [
-      "Emas murni 24 karat",
-      "Desain eksklusif terinspirasi budaya Bali",
-      "Dikerjakan oleh pengrajin berpengalaman",
-      "Sertifikat keaslian",
-      "Garansi seumur hidup",
-      "Kotak mewah gratis",
-    ],
-    story:
-      "Terinspirasi oleh keindahan dewi-dewi dalam mitologi Bali, kalung ini dirancang untuk memancarkan keanggunan dan kemurnian. Setiap detail dikerjakan dengan presisi tinggi oleh pengrajin master kami.",
-  },
-  {
-    id: 2,
-    name: "Anting Melati",
-    price: "Rp 3.200.000",
-    priceNumber: 3200000,
-    category: "Anting",
-    images: [
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=800&q=80&fit=crop",
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&q=80&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&q=80&fit=crop",
-    ],
-    description:
-      "Elegan seperti bunga melati yang mekar di pagi hari. Anting ini sempurna untuk acara formal maupun kasual.",
-    material: "Emas 22K",
-    weight: "8.2 gram",
-    dimensions: "2.5cm x 1.5cm",
-    features: [
-      "Emas 22 karat berkualitas tinggi",
-      "Desain bunga melati yang ikonik",
-      "Ringan dan nyaman dipakai",
-      "Sertifikat keaslian",
-      "Garansi 2 tahun",
-    ],
-    story:
-      "Melati adalah bunga yang sangat dihormati dalam budaya Indonesia. Anting ini menangkap esensi keindahan dan kesederhanaan bunga melati dalam bentuk emas murni.",
-  },
-  {
-    id: 3,
-    name: "Gelang Frangipani",
-    price: "Rp 5.800.000",
-    priceNumber: 5800000,
-    category: "Gelang",
-    images: [
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Pesona frangipani Bali dalam setiap detailnya. Gelang mewah yang menggabungkan keindahan bunga khas Bali dengan kemewahan emas murni.",
-    material: "Emas 22K",
-    weight: "12.3 gram",
-    dimensions: "18cm keliling",
-    features: [
-      "Emas 22 karat berkualitas premium",
-      "Motif bunga frangipani yang detail",
-      "Desain yang nyaman di pergelangan tangan",
-      "Sertifikat keaslian",
-      "Garansi 3 tahun",
-      "Box eksklusif",
-    ],
-    story:
-      "Frangipani adalah bunga ikonik Bali yang melambangkan keindahan spiritual. Gelang ini menangkap esensi bunga suci tersebut dalam bentuk emas yang mengalir indah di pergelangan tangan Anda.",
-  },
-  {
-    id: 4,
-    name: "Cincin Surya",
-    price: "Rp 4.500.000",
-    priceNumber: 4500000,
-    category: "Cincin",
-    images: [
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1588444650700-089e7b8b8948?w=800&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Cahaya matahari dalam emas. Cincin yang memancarkan kehangatan dan kemewahan dengan desain yang timeless.",
-    material: "Emas 24K",
-    weight: "10.8 gram",
-    dimensions: "Ring size adjustable",
-    features: [
-      "Emas murni 24 karat",
-      "Desain inspired by sun rays",
-      "Finishing glossy dan matte contrast",
-      "Sertifikat keaslian",
-      "Garansi seumur hidup",
-      "Packaging mewah",
-    ],
-    story:
-      "Terinspirasi oleh cahaya matahari yang memberikan kehidupan, cincin Surya dirancang untuk memancarkan energi positif dan kemewahan yang abadi.",
-  },
-  {
-    id: 5,
-    name: "Kalung Lotus",
-    price: "Rp 9.200.000",
-    priceNumber: 9200000,
-    category: "Kalung",
-    images: [
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Simbol kemurnian dan keanggunan. Kalung Lotus adalah masterpiece yang menggabungkan spiritualitas dengan kemewahan.",
-    material: "Emas 24K",
-    weight: "18.7 gram",
-    dimensions: "50cm panjang",
-    features: [
-      "Emas murni 24 karat",
-      "Pendant lotus yang detail dan artistik",
-      "Chain premium dengan kualitas terbaik",
-      "Sertifikat keaslian dan appraisal",
-      "Garansi seumur hidup",
-      "Luxury gift box",
-    ],
-    story:
-      "Bunga lotus melambangkan kemurnian dan pencerahan spiritual. Kalung ini adalah representasi sempurna dari filosofi tersebut, dikerjakan dengan detail yang luar biasa oleh pengrajin master kami.",
-  },
-  {
-    id: 6,
-    name: "Gelang Permata",
-    price: "Rp 12.500.000",
-    priceNumber: 12500000,
-    category: "Gelang",
-    images: [
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Kilau permata yang mempesona. Kombinasi sempurna antara emas murni dan berlian pilihan untuk kemewahan maksimal.",
-    material: "Emas 24K + Berlian",
-    weight: "14.5 gram",
-    dimensions: "19cm keliling",
-    features: [
-      "Emas 24 karat dengan berlian natural",
-      "Berlian VVS clarity",
-      "Setting premium dan aman",
-      "Sertifikat berlian dan emas",
-      "Garansi lifetime",
-      "Exclusive packaging",
-    ],
-    story:
-      "Koleksi Permata adalah puncak dari keahlian kami. Setiap berlian dipilih dengan teliti dan di-set dengan presisi tinggi untuk menghasilkan karya yang benar-benar istimewa.",
-  },
-  {
-    id: 7,
-    name: "Anting Bintang",
-    price: "Rp 4.800.000",
-    priceNumber: 4800000,
-    category: "Anting",
-    images: [
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1535556116002-6281ff3e9f35?w=800&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Bercahaya seperti bintang di langit malam. Anting yang memancarkan elegance dan sophistication.",
-    material: "Emas 22K",
-    weight: "9.5 gram",
-    dimensions: "3cm x 2cm",
-    features: [
-      "Emas 22 karat premium quality",
-      "Desain star-inspired yang modern",
-      "Comfortable untuk pemakaian sepanjang hari",
-      "Sertifikat keaslian",
-      "Garansi 2 tahun",
-      "Premium gift box",
-    ],
-    story:
-      "Terinspirasi oleh keindahan bintang yang berkilauan di langit malam Bali, anting Bintang dirancang untuk membuat pemakainya bersinar dengan percaya diri.",
-  },
-  {
-    id: 8,
-    name: "Cincin Engagement",
-    price: "Rp 15.000.000",
-    priceNumber: 15000000,
-    category: "Cincin",
-    images: [
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&q=80&fit=crop",
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&q=80&fit=crop",
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343a?w=800&h=800&q=80&fit=crop",
-    ],
-    description:
-      "Lambang cinta abadi. Cincin pertunangan yang sempurna untuk momen spesial Anda dengan desain yang timeless dan elegant.",
-    material: "Emas 24K + Berlian",
-    weight: "11.2 gram",
-    dimensions: "Ring size custom",
-    features: [
-      "Emas murni 24 karat",
-      "Center stone: Berlian 0.5 carat",
-      "Side stones: Berlian accent",
-      "Clarity: VVS1",
-      "Custom engraving gratis",
-      "Sertifikat internasional",
-      "Garansi seumur hidup",
-      "Luxury presentation box",
-    ],
-    story:
-      "Cincin Engagement kami adalah simbol dari komitmen cinta yang abadi. Setiap cincin dibuat khusus dengan perhatian penuh terhadap detail, untuk menjadi saksi dari momen terindah dalam hidup Anda.",
-  },
-];
+import { products } from "../../data/products";
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -327,7 +113,7 @@ export default function ProductDetailPage() {
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
-                  src={product.images[selectedImage]}
+                  src={product.images?.[selectedImage] || product.image}
                   alt={product.name}
                   className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -349,7 +135,7 @@ export default function ProductDetailPage() {
 
               {/* Thumbnail Gallery */}
               <div className="grid grid-cols-3 gap-4">
-                {product.images.map((image, index) => (
+                {product.images?.map((image, index) => (
                   <motion.button
                     key={index}
                     whileHover={{ scale: 1.05 }}
@@ -430,7 +216,7 @@ export default function ProductDetailPage() {
                   Keunggulan
                 </h3>
                 <ul className="space-y-2">
-                  {product.features.map((feature, index) => (
+                  {product.features?.map((feature, index) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -438,7 +224,7 @@ export default function ProductDetailPage() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <Check className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                       <span className="text-cream/80">{feature}</span>
                     </motion.li>
                   ))}
