@@ -40,30 +40,31 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-dark">
       {/* Image Carousel Background */}
-      <div className="relative z-0">
-        <AnimatePresence mode="wait">
+      <div className="relative z-0 h-screen">
+        <AnimatePresence initial={false}>
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.8, ease: [0.21, 0.45, 0.27, 0.9] }}
+            className="absolute inset-0 w-full h-full"
           >
             {/* Mobile - Portrait */}
-            <div className="md:hidden">
+            <div className="md:hidden w-full h-full">
               <img
                 src={heroImages[currentIndex].portrait}
                 alt="Dahayu Jewelry"
-                className="w-full h-auto"
+                className="w-full h-full object-cover"
               />
             </div>
 
             {/* Desktop - Landscape */}
-            <div className="hidden md:block">
+            <div className="hidden md:block w-full h-full">
               <img
                 src={heroImages[currentIndex].landscape}
                 alt="Dahayu Jewelry"
-                className="w-full h-auto"
+                className="w-full h-full object-cover"
               />
             </div>
           </motion.div>
