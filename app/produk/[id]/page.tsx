@@ -161,6 +161,7 @@ export default function ProductDetailPage() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
+              {/* Category & Title */}
               <div>
                 <span className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 rounded-full text-gold text-sm mb-4">
                   {product.category}
@@ -168,54 +169,66 @@ export default function ProductDetailPage() {
                 <h1 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-4">
                   {product.name}
                 </h1>
-                <p className="text-cream/70 text-lg leading-relaxed">
+              </div>
+
+              {/* Deskripsi */}
+              <div className="bg-dark-lighter p-6 rounded-2xl border border-gold/10">
+                <h3 className="text-lg font-serif font-bold text-gold mb-3">
+                  Deskripsi
+                </h3>
+                <p className="text-cream/80 leading-relaxed">
                   {product.description}
                 </p>
               </div>
 
-              {/* Price */}
-              <div className="py-6 border-y border-gold/20">
-                <div className="text-3xl font-bold text-gold">
+              {/* Harga */}
+              <div className="bg-linear-to-br from-gold/10 to-transparent p-6 rounded-2xl border border-gold/20">
+                <h3 className="text-lg font-serif font-bold text-cream mb-2">
+                  Harga
+                </h3>
+                <div className="text-3xl font-bold text-gold mb-2">
                   {product.price}
                 </div>
-                <p className="text-cream/60 text-sm mt-2">
+                <p className="text-cream/60 text-sm">
                   Harga sudah termasuk pajak
                 </p>
               </div>
 
-              {/* Specifications */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-serif font-bold text-cream">
+              {/* Spesifikasi */}
+              <div className="bg-dark-lighter p-6 rounded-2xl border border-gold/10">
+                <h3 className="text-lg font-serif font-bold text-gold mb-4">
                   Spesifikasi
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-dark-lighter p-4 rounded-xl border border-gold/10">
-                    <div className="text-cream/60 text-sm mb-1">Material</div>
-                    <div className="text-cream font-semibold">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center py-3 border-b border-gold/10">
+                    <span className="text-cream/60">Material</span>
+                    <span className="text-cream font-semibold text-right">
                       {product.material}
-                    </div>
+                    </span>
                   </div>
-                  <div className="bg-dark-lighter p-4 rounded-xl border border-gold/10">
-                    <div className="text-cream/60 text-sm mb-1">Berat</div>
-                    <div className="text-cream font-semibold">
+                  <div className="flex justify-between items-center py-3 border-b border-gold/10">
+                    <span className="text-cream/60">Berat</span>
+                    <span className="text-cream font-semibold">
                       {product.weight}
-                    </div>
+                    </span>
                   </div>
-                  <div className="bg-dark-lighter p-4 rounded-xl border border-gold/10 col-span-2">
-                    <div className="text-cream/60 text-sm mb-1">Dimensi</div>
-                    <div className="text-cream font-semibold">
-                      {product.dimensions}
+                  {product.dimensions && (
+                    <div className="flex justify-between items-center py-3">
+                      <span className="text-cream/60">Dimensi</span>
+                      <span className="text-cream font-semibold">
+                        {product.dimensions}
+                      </span>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
 
-              {/* Features */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-serif font-bold text-cream">
-                  Keunggulan
+              {/* Keunggulan */}
+              <div className="bg-linear-to-br from-gold/5 to-transparent p-6 rounded-2xl border border-gold/10">
+                <h3 className="text-lg font-serif font-bold text-gold mb-4">
+                  Keunggulan Produk
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {product.features?.map((feature, index) => (
                     <motion.li
                       key={index}
@@ -224,15 +237,19 @@ export default function ProductDetailPage() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <Check className="w-5 h-5 text-gold mt-0.5 shrink-0" />
-                      <span className="text-cream/80">{feature}</span>
+                      <div className="w-6 h-6 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-4 h-4 text-gold" />
+                      </div>
+                      <span className="text-cream/80 leading-relaxed">
+                        {feature}
+                      </span>
                     </motion.li>
                   ))}
                 </ul>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex gap-4 pt-6">
+              <div className="flex gap-4 pt-2">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -251,16 +268,103 @@ export default function ProductDetailPage() {
                   <Share2 className="w-6 h-6 text-gold" />
                 </motion.button>
               </div>
-
-              {/* Story */}
-              <div className="bg-linear-to-br from-gold/5 to-transparent p-6 rounded-2xl border border-gold/10">
-                <h3 className="text-xl font-serif font-bold text-cream mb-3">
-                  Cerita Produk
-                </h3>
-                <p className="text-cream/70 leading-relaxed">{product.story}</p>
-              </div>
             </motion.div>
           </div>
+
+          {/* Full Width Story Section */}
+          {product.story && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              {/* Cerita Produk */}
+              <div className="lg:col-span-2 bg-linear-to-br from-gold/10 via-gold/5 to-transparent p-8 rounded-2xl border border-gold/20">
+                <h3 className="text-2xl font-serif font-bold text-gold mb-4 flex items-center gap-3">
+                  <div className="w-2 h-8 bg-gold rounded-full"></div>
+                  Cerita Produk
+                </h3>
+                <div className="text-cream/80 leading-relaxed space-y-4 whitespace-pre-line">
+                  {product.story.split("\n\n").map((paragraph, idx) => {
+                    // Check if it's a special section
+                    if (
+                      paragraph.startsWith(
+                        "✨ Pengalaman yang Dirasakan Pemakai"
+                      )
+                    ) {
+                      return null; // Skip, akan dihandle di section terpisah
+                    }
+                    if (paragraph.startsWith("Mengapa Memilih")) {
+                      return null; // Skip, akan dihandle di section terpisah
+                    }
+                    if (paragraph.startsWith("Perawatan & Garansi")) {
+                      return null; // Skip, akan dihandle di section terpisah
+                    }
+                    return <p key={idx}>{paragraph}</p>;
+                  })}
+                </div>
+              </div>
+
+              {/* Pengalaman Pemakai */}
+              {product.story.includes(
+                "✨ Pengalaman yang Dirasakan Pemakai"
+              ) && (
+                <div className="bg-dark-lighter p-8 rounded-2xl border border-gold/20">
+                  <h3 className="text-xl font-serif font-bold text-gold mb-4">
+                    ✨ Pengalaman Pemakai
+                  </h3>
+                  <div className="space-y-3">
+                    {product.story
+                      .split("✨ Pengalaman yang Dirasakan Pemakai")[1]
+                      ?.split("\n")
+                      .filter((line) => line.trim().startsWith("•"))
+                      .map((line, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gold mt-2 shrink-0"></div>
+                          <p className="text-cream/80 leading-relaxed">
+                            {line.replace("•", "").trim()}
+                          </p>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Mengapa Memilih Produk */}
+              {product.story.includes("Mengapa Memilih") && (
+                <div className="lg:col-span-2 bg-linear-to-br from-gold/5 to-transparent p-8 rounded-2xl border border-gold/10">
+                  <h3 className="text-xl font-serif font-bold text-gold mb-4">
+                    Mengapa Memilih {product.name}
+                  </h3>
+                  <p className="text-cream/80 leading-relaxed">
+                    {product.story
+                      .split("Mengapa Memilih")[1]
+                      ?.split("\n\n")[0]
+                      .replace(/.*\n/, "")
+                      .trim()}
+                  </p>
+                </div>
+              )}
+
+              {/* Perawatan & Garansi */}
+              {product.story.includes("Perawatan & Garansi") && (
+                <div className="bg-dark-lighter p-8 rounded-2xl border border-gold/20">
+                  <h3 className="text-xl font-serif font-bold text-gold mb-4">
+                    Perawatan & Garansi
+                  </h3>
+                  <p className="text-cream/80 leading-relaxed">
+                    {product.story
+                      .split("Perawatan & Garansi")[1]
+                      ?.split("\n")
+                      .filter((line) => line.trim())
+                      .join(" ")
+                      .trim()}
+                  </p>
+                </div>
+              )}
+            </motion.div>
+          )}
         </div>
       </section>
 

@@ -38,7 +38,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-dark md:pt-24">
+    <section className="relative w-full overflow-hidden bg-dark">
       {/* Image Carousel Background */}
       <div className="relative z-0">
         <AnimatePresence mode="wait">
