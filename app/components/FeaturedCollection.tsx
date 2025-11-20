@@ -4,63 +4,10 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { products as allProducts } from "../data/products";
 
-const products = [
-  {
-    id: 1,
-    name: "Kalung Dewi",
-    price: "Rp 8.500.000",
-    category: "Kalung",
-    image:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop",
-    description: "Keindahan dewi dalam setiap detail",
-  },
-  {
-    id: 2,
-    name: "Anting Melati",
-    price: "Rp 3.200.000",
-    category: "Anting",
-    image:
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=800&q=80&fit=crop",
-    description: "Elegan seperti bunga melati",
-  },
-  {
-    id: 3,
-    name: "Gelang Frangipani",
-    price: "Rp 5.800.000",
-    category: "Gelang",
-    image:
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop",
-    description: "Pesona frangipani Bali",
-  },
-  {
-    id: 4,
-    name: "Cincin Surya",
-    price: "Rp 4.500.000",
-    category: "Cincin",
-    image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80&auto=format&fit=crop",
-    description: "Cahaya matahari dalam emas",
-  },
-  {
-    id: 5,
-    name: "Kalung Lotus",
-    price: "Rp 9.200.000",
-    category: "Kalung",
-    image:
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&auto=format&fit=crop",
-    description: "Spiritual dan menawan",
-  },
-  {
-    id: 6,
-    name: "Anting Ratna",
-    price: "Rp 3.800.000",
-    category: "Anting",
-    image:
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80&auto=format&fit=crop",
-    description: "Permata yang berkilau abadi",
-  },
-];
+// Get 6 featured products (mix of categories)
+const products = allProducts.slice(0, 6);
 
 function ProductCard({
   product,
@@ -119,9 +66,9 @@ function ProductCard({
           className="relative bg-dark-lighter rounded-3xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer"
         >
           {/* Image Container */}
-          <div className="relative h-[400px] overflow-hidden">
+          <div className="relative h-[400px] overflow-hidden shrink-0">
             <motion.img
-              src={product.image}
+              src={product.images?.[0] || ""}
               alt={product.name}
               className="w-full h-full object-cover"
               animate={{

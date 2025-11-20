@@ -116,7 +116,7 @@ export default function KoleksiPage() {
                 <Link href={`/produk/${product.id}`}>
                   <div className="group relative bg-dark-lighter rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer luxury-glow flex flex-col h-full">
                     {/* Image */}
-                    <div className="relative h-80 overflow-hidden shrink-0">
+                    <div className="relative h-[400px] overflow-hidden shrink-0">
                       <motion.img
                         whileHover={{ scale: 1.15 }}
                         transition={{ duration: 0.6 }}

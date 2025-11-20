@@ -452,9 +452,9 @@ export const products: Product[] = [
     category: "Anting",
     image: "/Tunjung Blooming Earring Gold/IMG_6729.jpg",
     images: [
-      "/Tunjung Blooming Earring Gold/IMG_6729.jpg",
-      "/Tunjung Blooming Earring Gold/IMG_6733.jpg",
-      "/Tunjung Blooming Earring Gold/IMG_6740.jpg",
+      "/Tunjung Blooming Earring Gold/IMG_6749.jpg",
+      "/Tunjung Blooming Earring Gold/IMG_6754.jpg",
+      "/Tunjung Blooming Earring Gold/IMG_6895.jpg",
     ],
     description:
       'Keindahan teratai yang mekar lembut simbol pencerahan, ketenangan, dan perjalanan jiwa yang menemukan cahayanya. "Tunjung" berarti teratai dalam bahasa Bali, bunga yang tumbuh dari air tenang dan mekar penuh kedamaian.',
