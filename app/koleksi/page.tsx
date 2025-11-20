@@ -5,18 +5,24 @@ import Link from "next/link";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Search } from "lucide-react";
 import { products } from "../data/products";
 
 const categories = ["Semua", "Anting", "Cincin", "Bros"];
 
 export default function KoleksiPage() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts =
-    selectedCategory === "Semua"
-      ? products
-      : products.filter((p) => p.category === selectedCategory);
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory =
+      selectedCategory === "Semua" || product.category === selectedCategory;
+    const matchesSearch =
+      searchQuery === "" ||
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <main className="min-h-screen bg-dark relative overflow-hidden">
@@ -80,6 +86,21 @@ export default function KoleksiPage() {
       {/* Category Filter */}
       <section className="relative py-8 border-y border-gold/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
+          {/* Search Bar */}
+          <div className="mb-8">
+            <div className="relative max-w-2xl mx-auto">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/50" />
+              <input
+                type="text"
+                placeholder="Cari perhiasan..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 bg-dark-lighter border border-gold/20 rounded-full text-cream placeholder:text-cream/50 focus:outline-none focus:border-gold/50 transition-colors duration-300"
+              />
+            </div>
+          </div>
+
+          {/* Category Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <motion.button
@@ -103,6 +124,20 @@ export default function KoleksiPage() {
       {/* Products Grid */}
       <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
+          {/* Results count */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mb-8 text-center"
+          >
+            <p className="text-cream/60 text-sm">
+              Menampilkan {filteredProducts.length} produk
+              {searchQuery && (
+                <span className="text-gold"> untuk "{searchQuery}"</span>
+              )}
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {filteredProducts.map((product, index) => (
               <motion.div
