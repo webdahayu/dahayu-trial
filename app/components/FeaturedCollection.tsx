@@ -6,8 +6,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { products as allProducts } from "../data/products";
 
-// Get 6 featured products (mix of categories)
-const products = allProducts.slice(0, 6);
+// Get 6 featured products (sorted alphabetically, mix of categories)
+const products = allProducts
+  .slice()
+  .sort((a, b) => a.name.localeCompare(b.name))
+  .slice(0, 6);
 
 function ProductCard({
   product,

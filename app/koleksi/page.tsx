@@ -14,15 +14,17 @@ export default function KoleksiPage() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts = products.filter((product) => {
-    const matchesCategory =
-      selectedCategory === "Semua" || product.category === selectedCategory;
-    const matchesSearch =
-      searchQuery === "" ||
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredProducts = products
+    .filter((product) => {
+      const matchesCategory =
+        selectedCategory === "Semua" || product.category === selectedCategory;
+      const matchesSearch =
+        searchQuery === "" ||
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <main className="min-h-screen bg-dark relative overflow-hidden">
