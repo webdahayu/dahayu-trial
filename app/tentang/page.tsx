@@ -278,7 +278,7 @@ export default function TentangPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="text-3xl font-light text-gold mb-1">925</div>
-                  <div className="text-cream/60 text-sm">Perak Sterling</div>
+                  <div className="text-cream/60 text-sm">Perak</div>
                 </motion.div>
                 <div className="w-px bg-gold/20" />
                 <motion.div
