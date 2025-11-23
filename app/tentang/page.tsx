@@ -476,16 +476,19 @@ export default function TentangPage() {
                 >
                   "
                 </motion.div>
+                <h3 className="text-2xl font-serif font-light text-gold mb-6 text-center">
+                  Kata Para Pendiri Dahayu
+                </h3>
                 <p className="text-cream/90 text-xl md:text-2xl font-light text-center leading-relaxed mb-8 italic">
-                  Kami memulai dengan satu impian sederhana: membuat perhiasan
-                  yang tidak hanya indah, tetapi juga bermakna. Setiap pelanggan
-                  adalah bagian dari keluarga besar kami. Kepuasan Anda adalah
-                  kebanggaan kami, dan kepercayaan Anda adalah harta paling
-                  berharga yang kami jaga.
+                  Kami memulai dengan satu impian sederhana: menciptakan
+                  perhiasan yang tidak hanya indah, tapi juga menghidupkan
+                  makna. Bagi kami, setiap pelanggan adalah bagian dari keluarga
+                  besar Dahayu. Kepercayaan Anda adalah cahaya yang menuntun
+                  kami untuk terus berkarya dengan hati.
                 </p>
                 <div className="text-center">
                   <div className="text-gold font-normal text-lg mb-1">
-                    Ibu Wayan, Ibu Made & Ibu Ketut
+                    Ibu Dewa Ayu, Ibu Indah & Ibu Mely
                   </div>
                   <div className="text-cream/60">Pendiri Dahayu Jewelry</div>
                 </div>

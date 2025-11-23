@@ -17,27 +17,27 @@ export default function About() {
   const values = [
     {
       icon: Leaf,
-      title: "Inspirasi Alam",
+      title: "🌿 Keaslian yang Bernilai",
       description:
-        "Setiap desain terinspirasi dari keindahan alam tropis Bali yang memukau dan filosofi harmoni dengan alam",
+        "Kami hanya menggunakan bahan berkualitas tinggi dan proses yang transparan. Namun bagi kami, keaslian sejati bukan sekadar sertifikat, melainkan ketulusan dalam menciptakan karya yang lahir dari hati.",
     },
     {
       icon: Heart,
-      title: "Buatan Tangan",
+      title: "💛 Keahlian dengan Jiwa",
       description:
-        "Dikerjakan dengan penuh cinta oleh pengrajin berpengalaman yang mewarisi teknik tradisional Bali",
+        "Setiap perhiasan dikerjakan oleh pengrajin berpengalaman, dengan ketenangan dan presisi yang diwariskan dari generasi ke generasi. Bagi mereka, mencipta adalah bentuk meditasi sebuah seni yang dijalani dengan rasa.",
     },
     {
       icon: Sparkles,
-      title: "Emas Murni 24K",
+      title: "✨ Kualitas yang Dirasakan",
       description:
-        "Menggunakan emas berkualitas tinggi untuk kilau yang abadi dan nilai investasi yang terjaga",
+        "Kami menjaga standar tertinggi di setiap detail, dari desain hingga hasil akhir yang nyaman dan anggun dikenakan. Bagi Dahayu, kualitas bukan hanya tentang tampilan, tetapi tentang perasaan yang ditinggalkan saat seseorang mengenakannya.",
     },
     {
       icon: Award,
-      title: "Kualitas Premium",
+      title: "🌸 Desain yang Bermakna",
       description:
-        "Setiap pieces melalui quality control ketat untuk memastikan kesempurnaan dalam setiap detail",
+        "Setiap desain Dahayu terinspirasi dari keindahan alam dan filosofi kehidupan. Unik, berkarakter, dan penuh cerita diciptakan untuk mengingatkan setiap perempuan bahwa keindahan sejati selalu tumbuh dari dalam diri.",
     },
   ];
 
@@ -124,7 +124,7 @@ export default function About() {
                     </div>
                     <div className="h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent mb-4" />
                     <p className="text-cream/80 text-sm font-sans italic text-center">
-                      "Setiap perhiasan adalah warisan yang akan dikenang"
+                      "Makna yang dikenakan, cerita yang diwariskan."
                     </p>
                   </div>
                 </motion.div>
@@ -230,7 +230,7 @@ export default function About() {
               className="mt-12"
             >
               <motion.a
-                href="#koleksi"
+                href="/tentang"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-dark font-normal rounded-full hover:bg-gold-light transition-all duration-300 luxury-glow"

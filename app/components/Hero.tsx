@@ -38,17 +38,17 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full bg-dark">
+    <section className="relative w-full bg-dark overflow-hidden">
       {/* Image Carousel Background */}
       <div className="relative z-0 w-full">
-        <AnimatePresence initial={false} mode="popLayout">
+        <AnimatePresence initial={false}>
           <motion.div
             key={currentIndex}
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.21, 0.45, 0.27, 0.9] }}
-            className="w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
           >
             {/* Mobile - Portrait */}
             <img
@@ -65,6 +65,20 @@ export default function Hero() {
             />
           </motion.div>
         </AnimatePresence>
+
+        {/* Placeholder to maintain height */}
+        <img
+          src={heroImages[0].portrait}
+          alt=""
+          className="w-full h-auto md:hidden invisible"
+          aria-hidden="true"
+        />
+        <img
+          src={heroImages[0].landscape}
+          alt=""
+          className="w-full h-auto hidden md:block invisible"
+          aria-hidden="true"
+        />
 
         {/* Carousel indicators */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">

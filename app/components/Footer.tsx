@@ -15,20 +15,14 @@ export default function Footer() {
     {
       name: "Instagram",
       icon: Instagram,
-      url: "https://instagram.com/dahayujewelry",
-      handle: "@dahayujewelry",
+      url: "https://instagram.com/dahayu.jewelry",
+      handle: "@dahayu.jewelry",
     },
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      url: "https://wa.me/6281234567890",
-      handle: "+62 812-3456-7890",
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      url: "mailto:info@dahayujewelry.com",
-      handle: "info@dahayujewelry.com",
+      url: "https://wa.me/6285723368060",
+      handle: "+62 857-2336-8060",
     },
   ];
 
@@ -40,10 +34,9 @@ export default function Footer() {
   ];
 
   const collections = [
-    { name: "Kalung", href: "#" },
-    { name: "Anting", href: "#" },
-    { name: "Gelang", href: "#" },
-    { name: "Cincin", href: "#" },
+    { name: "Anting", href: "/koleksi" },
+    { name: "Cincin", href: "/koleksi" },
+    { name: "Bros", href: "/koleksi" },
   ];
 
   return (
@@ -83,7 +76,7 @@ export default function Footer() {
 
             <p className="text-cream/70 leading-relaxed font-sans mb-8 max-w-md">
               Perhiasan emas premium yang menggabungkan keindahan alam Bali
-              dengan keahlian pengrajin tradisional sejak 2010.
+              dengan keahlian pengrajin tradisional sejak 2020.
             </p>
 
             {/* Address */}
@@ -173,32 +166,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
-
-          {/* Newsletter - Optional */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-2"
-          >
-            <h4 className="text-xl font-serif font-normal text-gold mb-6">
-              Newsletter
-            </h4>
-            <p className="text-cream/60 text-sm font-sans mb-4">
-              Dapatkan update koleksi terbaru
-            </p>
-            <div className="space-y-3">
-              <input
-                type="email"
-                placeholder="Email Anda"
-                className="w-full px-4 py-3 bg-dark-lighter border border-gold/20 rounded-xl text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold transition-colors duration-300"
-              />
-              <button className="w-full px-4 py-3 bg-gold text-dark font-normal rounded-xl hover:bg-gold-light transition-all duration-300">
-                Subscribe
-              </button>
-            </div>
           </motion.div>
         </div>
 
