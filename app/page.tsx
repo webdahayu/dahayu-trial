@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://dahayujewelry.com",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Dahayu Jewelry",

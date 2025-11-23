@@ -65,7 +65,7 @@ export const metadata: Metadata = {
       "Perhiasan emas 18K dan perak 925 premium handmade dari Bali. Setiap karya dibuat dengan makna mendalam, menggabungkan keindahan alam dan filosofi kehidupan.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Dahayu Jewelry - Perhiasan Premium Bali",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: "Dahayu Jewelry - Perhiasan Emas Premium Bali",
     description:
       "Perhiasan emas 18K dan perak 925 premium handmade dari Bali dengan makna mendalam.",
-    images: ["/og-image.jpg"],
+    images: ["/logo.png"],
     creator: "@dahayu.jewelry",
   },
   robots: {
