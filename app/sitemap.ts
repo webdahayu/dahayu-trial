@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 import { products } from "./data/products";
+import { client } from "@/lib/sanity";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://dahayujewelry.com";
 
   // Static pages
@@ -55,5 +56,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...productPages, ...categoryPages];
+  // Fetch blog posts from Sanity
+  const blogPosts = await client.fetch(`
+    *[_type == "post"] {
+      slug,
+      publishedAt
+    }
+  `);
+
+  const blogPages = blogPosts.map((post: any) => ({
+    url: `${baseUrl}/blog/${post.slug.current}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...productPages, ...categoryPages, ...blogPages];
 }

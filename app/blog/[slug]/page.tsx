@@ -27,13 +27,22 @@ interface Post {
 
 const portableTextComponents = {
   types: {
-    image: ({ value }: any) => (
-      <img
-        src={value.asset.url}
-        alt={value.alt || ""}
-        className="w-full rounded-xl my-8"
-      />
-    ),
+    image: ({ value }: any) => {
+      const imageUrl = value?.asset?.url;
+
+      if (!imageUrl) {
+        console.log("Image value:", value);
+        return null;
+      }
+
+      return (
+        <img
+          src={imageUrl}
+          alt={value.alt || ""}
+          className="w-full rounded-xl my-8"
+        />
+      );
+    },
   },
   block: {
     h1: ({ children }: any) => (
@@ -70,7 +79,13 @@ export default function BlogPostPage() {
         excerpt,
         publishedAt,
         author,
-        body,
+        body[] {
+          ...,
+          _type == "image" => {
+            ...,
+            asset->
+          }
+        },
         mainImage {
           asset->{url},
           alt
