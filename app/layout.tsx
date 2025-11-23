@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
+import {
+  OrganizationSchema,
+  LocalBusinessSchema,
+  WebsiteSchema,
+} from "./components/StructuredData";
+import { Analytics } from "./components/Analytics";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -17,23 +23,86 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Dahayu Jewelry - Keindahan Abadi dalam Kilau Alam",
+  metadataBase: new URL("https://dahayujewelry.com"),
+  title: {
+    default:
+      "Dahayu Jewelry - Perhiasan Emas Premium Bali | Jewelry with a Soul",
+    template: "%s | Dahayu Jewelry",
+  },
   description:
-    "Perhiasan emas premium yang terinspirasi oleh alam dan keindahan Bali. Koleksi eksklusif kalung, anting, gelang, dan cincin dengan sentuhan seni tradisional Bali.",
+    "Dahayu Jewelry menghadirkan perhiasan emas 18K dan perak 925 premium yang dibuat dengan tangan oleh pengrajin Bali. Setiap karya terinspirasi dari keindahan alam dan filosofi kehidupan. Koleksi cincin, anting, dan bros eksklusif dengan makna mendalam.",
   keywords: [
     "perhiasan bali",
-    "emas",
-    "jewelry",
-    "dahayu",
-    "perhiasan alam",
-    "handcrafted jewelry",
+    "emas 18k",
+    "perak 925",
+    "jewelry bali",
+    "dahayu jewelry",
+    "perhiasan handmade",
+    "cincin emas bali",
+    "anting emas bali",
+    "bros emas bali",
+    "perhiasan tradisional bali",
+    "luxury jewelry indonesia",
+    "perhiasan premium",
+    "perhiasan bermakna",
+    "jewelry with soul",
   ],
-  openGraph: {
-    title: "Dahayu Jewelry - Keindahan Abadi dalam Kilau Alam",
-    description:
-      "Perhiasan emas premium yang terinspirasi oleh alam dan keindahan Bali",
-    type: "website",
+  authors: [{ name: "Dahayu Jewelry" }],
+  creator: "Dahayu Jewelry",
+  publisher: "Dahayu Jewelry",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
   },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://dahayujewelry.com",
+    siteName: "Dahayu Jewelry",
+    title: "Dahayu Jewelry - Perhiasan Emas Premium Bali | Jewelry with a Soul",
+    description:
+      "Perhiasan emas 18K dan perak 925 premium handmade dari Bali. Setiap karya dibuat dengan makna mendalam, menggabungkan keindahan alam dan filosofi kehidupan.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dahayu Jewelry - Perhiasan Premium Bali",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dahayu Jewelry - Perhiasan Emas Premium Bali",
+    description:
+      "Perhiasan emas 18K dan perak 925 premium handmade dari Bali dengan makna mendalam.",
+    images: ["/og-image.jpg"],
+    creator: "@dahayu.jewelry",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  alternates: {
+    canonical: "https://dahayujewelry.com",
+  },
+  category: "jewelry",
 };
 
 export default function RootLayout({
@@ -49,6 +118,14 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${poppins.variable} antialiased bg-cream text-green-dark`}
       >
+        {/* JSON-LD Structured Data for SEO */}
+        <OrganizationSchema />
+        <LocalBusinessSchema />
+        <WebsiteSchema />
+
+        {/* Google Analytics */}
+        <Analytics />
+
         {children}
       </body>
     </html>

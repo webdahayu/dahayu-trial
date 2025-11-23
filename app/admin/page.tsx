@@ -3,6 +3,9 @@
 import { NextStudio } from "next-sanity/studio";
 import config from "@/sanity.config";
 
+// Prevent prerendering for admin pages
+export const dynamic = "force-dynamic";
+
 export default function AdminPage() {
   return <NextStudio config={config} />;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff, LogIn, X } from "lucide-react";
 import {
@@ -9,22 +9,10 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  Auth,
 } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, FirebaseApp } from "firebase/app";
 import { useRouter } from "next/navigation";
-
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 interface SignInProps {
   isOpen: boolean;
@@ -39,9 +27,48 @@ export default function SignIn({ isOpen, onClose }: SignInProps) {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [auth, setAuth] = useState<Auth | null>(null);
+
+  useEffect(() => {
+    // Only initialize Firebase on the client side
+    if (typeof window === "undefined") return;
+
+    const firebaseConfig = {
+      apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "",
+      authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "",
+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "",
+      storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "",
+      messagingSenderId:
+        process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "",
+      appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "",
+      measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "",
+    };
+
+    // Check if Firebase config is valid
+    if (!firebaseConfig.apiKey) {
+      console.error("Firebase configuration is missing");
+      return;
+    }
+
+    let app: FirebaseApp;
+    if (getApps().length === 0) {
+      app = initializeApp(firebaseConfig);
+    } else {
+      app = getApps()[0];
+    }
+
+    const authInstance = getAuth(app);
+    setAuth(authInstance);
+  }, []);
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!auth) {
+      setError("Firebase not initialized");
+      return;
+    }
+
     setLoading(true);
     setError("");
 
@@ -69,6 +96,11 @@ export default function SignIn({ isOpen, onClose }: SignInProps) {
   };
 
   const handleGoogleSignIn = async () => {
+    if (!auth) {
+      setError("Firebase not initialized");
+      return;
+    }
+
     setLoading(true);
     setError("");
 
