@@ -55,6 +55,9 @@ export default function Hero() {
               src={heroImages[currentIndex].portrait}
               alt="Dahayu Jewelry"
               className="w-full h-auto md:hidden"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
 
             {/* Desktop - Landscape */}
@@ -62,6 +65,9 @@ export default function Hero() {
               src={heroImages[currentIndex].landscape}
               alt="Dahayu Jewelry"
               className="w-full h-auto hidden md:block"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
           </motion.div>
         </AnimatePresence>
@@ -72,12 +78,14 @@ export default function Hero() {
           alt=""
           className="w-full h-auto md:hidden invisible"
           aria-hidden="true"
+          loading="eager"
         />
         <img
           src={heroImages[0].landscape}
           alt=""
           className="w-full h-auto hidden md:block invisible"
           aria-hidden="true"
+          loading="eager"
         />
 
         {/* Carousel indicators */}

@@ -40,6 +40,8 @@ const portableTextComponents = {
           src={imageUrl}
           alt={value.alt || ""}
           className="w-full rounded-xl my-8"
+          loading="lazy"
+          decoding="async"
         />
       );
     },
@@ -195,6 +197,9 @@ export default function BlogPostPage() {
                 src={post.mainImage.asset.url}
                 alt={post.mainImage.alt || post.title}
                 className="w-full h-auto"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
             </motion.div>
           )}

@@ -111,6 +111,8 @@ export default function BlogPage() {
                             src={post.mainImage.asset.url}
                             alt={post.mainImage.alt || post.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-dark-lighter to-transparent" />
                         </div>

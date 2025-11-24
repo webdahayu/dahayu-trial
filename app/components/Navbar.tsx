@@ -53,6 +53,8 @@ export default function Navbar() {
                   src="/logo.png"
                   alt="Dahayu Jewelry"
                   className="h-16 md:h-20 w-auto object-contain"
+                  loading="eager"
+                  fetchPriority="high"
                 />
                 {/* Underline effect */}
                 <motion.div

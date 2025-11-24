@@ -2,29 +2,50 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Sparkles, Search } from "lucide-react";
+import { Sparkles, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "../data/products";
 
 const categories = ["Semua", "Anting", "Cincin", "Bros"];
+const ITEMS_PER_PAGE = 6; // Show 6 products per page
 
 export default function KoleksiPage() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const filteredProducts = products
-    .filter((product) => {
-      const matchesCategory =
-        selectedCategory === "Semua" || product.category === selectedCategory;
-      const matchesSearch =
-        searchQuery === "" ||
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
+  const filteredProducts = useMemo(() => {
+    return products
+      .filter((product) => {
+        const matchesCategory =
+          selectedCategory === "Semua" || product.category === selectedCategory;
+        const matchesSearch =
+          searchQuery === "" ||
+          product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [selectedCategory, searchQuery]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
 
   return (
     <main className="min-h-screen bg-dark relative overflow-hidden">
@@ -96,7 +117,7 @@ export default function KoleksiPage() {
                 type="text"
                 placeholder="Cari perhiasan..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-dark-lighter border border-gold/20 rounded-full text-cream placeholder:text-cream/50 focus:outline-none focus:border-gold/50 transition-colors duration-300"
               />
             </div>
@@ -109,7 +130,7 @@ export default function KoleksiPage() {
                 key={category}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategoryChange(category)}
                 className={`px-8 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? "bg-gold text-dark shadow-lg shadow-gold/20"
@@ -133,15 +154,17 @@ export default function KoleksiPage() {
             className="mb-8 text-center"
           >
             <p className="text-cream/60 text-sm">
-              Menampilkan {filteredProducts.length} produk
+              Menampilkan {startIndex + 1}-
+              {Math.min(endIndex, filteredProducts.length)} dari{" "}
+              {filteredProducts.length} produk
               {searchQuery && (
                 <span className="text-gold"> untuk "{searchQuery}"</span>
               )}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {filteredProducts.map((product, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentProducts.map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -160,6 +183,8 @@ export default function KoleksiPage() {
                         src={product.images?.[0] || product.image}
                         alt={product.name}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent opacity-60" />
 
@@ -216,6 +241,66 @@ export default function KoleksiPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex items-center justify-center gap-4 mt-16"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className={`p-3 rounded-full border transition-all duration-300 ${
+                  currentPage === 1
+                    ? "border-gold/20 text-cream/30 cursor-not-allowed"
+                    : "border-gold/40 text-gold hover:bg-gold/10"
+                }`}
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </motion.button>
+
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <motion.button
+                      key={page}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-10 h-10 rounded-full font-medium transition-all duration-300 ${
+                        currentPage === page
+                          ? "bg-gold text-dark shadow-lg shadow-gold/20"
+                          : "bg-dark-lighter text-cream border border-gold/20 hover:border-gold/50"
+                      }`}
+                    >
+                      {page}
+                    </motion.button>
+                  )
+                )}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(totalPages, prev + 1))
+                }
+                disabled={currentPage === totalPages}
+                className={`p-3 rounded-full border transition-all duration-300 ${
+                  currentPage === totalPages
+                    ? "border-gold/20 text-cream/30 cursor-not-allowed"
+                    : "border-gold/40 text-gold hover:bg-gold/10"
+                }`}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </motion.button>
+            </motion.div>
+          )}
         </div>
       </section>
 

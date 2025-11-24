@@ -116,6 +116,8 @@ export default function ProductDetailPage() {
                   src={product.images?.[selectedImage] || product.image}
                   alt={product.name}
                   className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
+                  decoding="async"
                 />
 
                 {/* Favorite Button */}
@@ -148,6 +150,8 @@ export default function ProductDetailPage() {
                       src={image}
                       alt={`${product.name} ${index + 1}`}
                       className="w-full h-32 object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </motion.button>
                 ))}

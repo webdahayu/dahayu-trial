@@ -1,10 +1,24 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import FeaturedCollection from "./components/FeaturedCollection";
-import About from "./components/About";
-import Testimonials from "./components/Testimonials";
-import Footer from "./components/Footer";
+
+// Lazy load components below the fold
+const FeaturedCollection = dynamic(
+  () => import("./components/FeaturedCollection"),
+  {
+    loading: () => <div className="min-h-screen" />,
+  }
+);
+const About = dynamic(() => import("./components/About"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Testimonials = dynamic(() => import("./components/Testimonials"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const Footer = dynamic(() => import("./components/Footer"), {
+  loading: () => <div className="min-h-[300px]" />,
+});
 
 export const metadata: Metadata = {
   title: "Dahayu Jewelry - Perhiasan Emas Premium Bali | Jewelry with a Soul",

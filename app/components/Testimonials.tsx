@@ -51,6 +51,8 @@ export default function Testimonials() {
               src="/testimonia.png"
               alt="Testimoni Pelanggan Dahayu"
               className="w-full h-auto rounded-2xl luxury-glow"
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
         </div>
