@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { ShoppingBag, Share2, Heart, ArrowLeft, Check } from "lucide-react";
@@ -107,18 +108,27 @@ export default function ProductDetailPage() {
               transition={{ duration: 0.8 }}
             >
               {/* Main Image */}
-              <div className="relative mb-6 rounded-2xl overflow-hidden border border-gold/20 luxury-glow group">
-                <motion.img
+              <div className="relative mb-6 rounded-2xl overflow-hidden border border-gold/20 luxury-glow group h-[600px]">
+                <motion.div
                   key={selectedImage}
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
-                  src={product.images?.[selectedImage] || product.image}
-                  alt={product.name}
-                  className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="eager"
-                  decoding="async"
-                />
+                  className="relative w-full h-full"
+                >
+                  <Image
+                    src={
+                      product.images?.[selectedImage] ||
+                      product.image ||
+                      "/logo.png"
+                    }
+                    alt={product.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </motion.div>
 
                 {/* Favorite Button */}
                 <motion.button
@@ -142,16 +152,17 @@ export default function ProductDetailPage() {
                     key={index}
                     whileHover={{ scale: 1.05 }}
                     onClick={() => setSelectedImage(index)}
-                    className={`relative rounded-xl overflow-hidden border-2 transition-all ${
+                    className={`relative rounded-xl overflow-hidden border-2 transition-all h-32 ${
                       selectedImage === index ? "border-gold" : "border-gold/20"
                     }`}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={`${product.name} ${index + 1}`}
-                      className="w-full h-32 object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 33vw, 20vw"
                       loading="lazy"
-                      decoding="async"
                     />
                   </motion.button>
                 ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Testimonials() {
   return (
@@ -47,12 +48,13 @@ export default function Testimonials() {
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto"
           >
-            <img
+            <Image
               src="/testimonia.png"
               alt="Testimoni Pelanggan Dahayu"
               className="w-full h-auto rounded-2xl luxury-glow"
+              width={1200}
+              height={800}
               loading="lazy"
-              decoding="async"
             />
           </motion.div>
         </div>

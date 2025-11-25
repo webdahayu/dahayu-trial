@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useMemo } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -177,15 +178,22 @@ export default function KoleksiPage() {
                   <div className="group relative bg-dark-lighter rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-500 cursor-pointer luxury-glow flex flex-col h-full">
                     {/* Image */}
                     <div className="relative h-[400px] overflow-hidden shrink-0">
-                      <motion.img
+                      <motion.div
                         whileHover={{ scale: 1.15 }}
                         transition={{ duration: 0.6 }}
-                        src={product.images?.[0] || product.image}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
+                        className="relative w-full h-full"
+                      >
+                        <Image
+                          src={
+                            product.images?.[0] || product.image || "/logo.png"
+                          }
+                          alt={product.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          loading="lazy"
+                        />
+                      </motion.div>
                       <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent opacity-60" />
 
                       {/* Shimmer effect */}

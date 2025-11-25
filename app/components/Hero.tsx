@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const heroImages = [
   {
@@ -50,42 +51,52 @@ export default function Hero() {
             transition={{ duration: 1, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
-            {/* Mobile - Portrait */}
-            <img
-              src={heroImages[currentIndex].portrait}
-              alt="Dahayu Jewelry"
-              className="w-full h-auto md:hidden"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
+            <div>
+              <div className="relative w-full h-full">
+                {/* Mobile - Portrait */}
+                <Image
+                  src={heroImages[currentIndex].portrait}
+                  alt="Dahayu Jewelry"
+                  className="w-full h-auto md:hidden"
+                  width={750}
+                  height={1334}
+                  priority
+                  quality={90}
+                />
 
-            {/* Desktop - Landscape */}
-            <img
-              src={heroImages[currentIndex].landscape}
-              alt="Dahayu Jewelry"
-              className="w-full h-auto hidden md:block"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
+                {/* Desktop - Landscape */}
+                <Image
+                  src={heroImages[currentIndex].landscape}
+                  alt="Dahayu Jewelry"
+                  className="w-full h-auto hidden md:block"
+                  width={1920}
+                  height={1080}
+                  priority
+                  quality={90}
+                />
+              </div>
+            </div>
           </motion.div>
         </AnimatePresence>
 
         {/* Placeholder to maintain height */}
-        <img
+        <Image
           src={heroImages[0].portrait}
           alt=""
           className="w-full h-auto md:hidden invisible"
           aria-hidden="true"
-          loading="eager"
+          width={750}
+          height={1334}
+          priority
         />
-        <img
+        <Image
           src={heroImages[0].landscape}
           alt=""
           className="w-full h-auto hidden md:block invisible"
           aria-hidden="true"
-          loading="eager"
+          width={1920}
+          height={1080}
+          priority
         />
 
         {/* Carousel indicators */}

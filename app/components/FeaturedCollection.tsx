@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { products as allProducts } from "../data/products";
 
 // Get 6 featured products (sorted alphabetically, mix of categories)
@@ -70,17 +71,22 @@ function ProductCard({
         >
           {/* Image Container */}
           <div className="relative h-[400px] overflow-hidden shrink-0">
-            <motion.img
-              src={product.images?.[0] || ""}
-              alt={product.name}
-              className="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
+            <motion.div
               animate={{
                 scale: isHovered ? 1.1 : 1,
               }}
               transition={{ duration: 0.6, ease: [0.21, 0.45, 0.27, 0.9] }}
-            />
+              className="relative w-full h-full"
+            >
+              <Image
+                src={product.images?.[0] || ""}
+                alt={product.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
+              />
+            </motion.div>
 
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-60" />

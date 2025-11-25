@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,13 +50,16 @@ export default function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
-                  src="/logo.png"
-                  alt="Dahayu Jewelry"
-                  className="h-16 md:h-20 w-auto object-contain"
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                <div className="relative">
+                  <Image
+                    src="/logo.png"
+                    alt="Dahayu Jewelry"
+                    className="h-16 md:h-20 w-auto object-contain"
+                    width={120}
+                    height={80}
+                    priority
+                  />
+                </div>
                 {/* Underline effect */}
                 <motion.div
                   className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold"

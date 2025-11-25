@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Calendar, User, ArrowLeft } from "lucide-react";
@@ -36,13 +37,16 @@ const portableTextComponents = {
       }
 
       return (
-        <img
-          src={imageUrl}
-          alt={value.alt || ""}
-          className="w-full rounded-xl my-8"
-          loading="lazy"
-          decoding="async"
-        />
+        <div className="relative w-full h-[400px] rounded-xl my-8 overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={value.alt || ""}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            loading="lazy"
+          />
+        </div>
       );
     },
   },
@@ -191,15 +195,15 @@ export default function BlogPostPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-12 rounded-2xl overflow-hidden border border-gold/20"
+              className="relative mb-12 rounded-2xl overflow-hidden border border-gold/20 h-[500px]"
             >
-              <img
+              <Image
                 src={post.mainImage.asset.url}
                 alt={post.mainImage.alt || post.title}
-                className="w-full h-auto"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
               />
             </motion.div>
           )}

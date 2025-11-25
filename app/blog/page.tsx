@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Calendar, User, ArrowRight } from "lucide-react";
@@ -107,12 +108,13 @@ export default function BlogPage() {
                       {/* Image */}
                       {post.mainImage?.asset?.url && (
                         <div className="relative h-56 overflow-hidden">
-                          <img
+                          <Image
                             src={post.mainImage.asset.url}
                             alt={post.mainImage.alt || post.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             loading="lazy"
-                            decoding="async"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-dark-lighter to-transparent" />
                         </div>
