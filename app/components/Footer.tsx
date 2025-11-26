@@ -74,11 +74,6 @@ export default function Footer() {
               />
             </div>
 
-            <p className="text-cream/70 leading-relaxed font-sans mb-8 max-w-md">
-              Perhiasan emas premium yang menggabungkan keindahan alam Bali
-              dengan keahlian pengrajin tradisional sejak 2020.
-            </p>
-
             {/* Address */}
             <div className="flex items-start gap-3 text-cream/60 mb-6">
               <MapPin className="w-5 h-5 text-gold mt-1 shrink-0" />
