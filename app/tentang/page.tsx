@@ -249,20 +249,20 @@ export default function TentangPage() {
               <div className="space-y-4 text-cream/70 text-lg leading-relaxed">
                 <p>
                   Dahayu lahir dari keyakinan bahwa setiap perempuan memiliki
-                  energi yang tak tergantikan kekuatan lembut yang tumbuh dari
-                  keinginan untuk mengenal dan mencintai diri sendiri. Melalui
-                  perhiasan, kami merayakan perjalanan itu.
+                  energi yang tak tergantikan yaitu kekuatan lembut yang tumbuh
+                  dari keinginan untuk mengenal dan mencintai diri sendiri.
                 </p>
                 <p>
-                  Setiap karya Dahayu bukan sekadar hiasan, melainkan penanda
-                  momen ketika perempuan berani kembali pada dirinya pada
-                  keindahan yang alami, tenang, dan penuh makna.
+                  Setiap karya Dahayu bukan sekadar hiasan, melainkan jejak
+                  kecil dari momen ketika seorang perempuan berani kembali pada
+                  dirinya sendiri; pada keindahan yang alami, tenang, dan penuh
+                  makna.
                 </p>
                 <p>
-                  Dibentuk oleh tangan pengrajin yang mengerti bahasa detail,
-                  Dahayu menghadirkan karya yang menyatukan keinginan,
-                  keindahan, dan makna kehidupan. Sebuah pertemuan antara seni,
-                  energi, dan keindahan batin perempuan modern.
+                  Dengan sentuhan pengrajin yang peka pada setiap detail, Dahayu
+                  menghadirkan karya yang memadukan keinginan, keindahan, dan
+                  makna hidup. Di sinilah seni dan energi bertemu dengan
+                  keindahan batin perempuan modern.
                 </p>
                 <p className="italic text-gold/80">
                   Dahayu Jewelry — Jewelry with a Soul.
@@ -629,21 +629,21 @@ export default function TentangPage() {
                 title: "Desain & Konsep",
                 description:
                   "Setiap perhiasan Dahayu berawal dari intuisi dan filosofi. Kami menggambar setiap lekuk dengan penuh kesadaran, terinspirasi oleh bentuk-bentuk alam yang melambangkan kekuatan dan kelembutan. Bukan sekadar desain, tetapi ungkapan rasa dan keindahan yang hidup dalam setiap detail.",
-                image: "/proses-pembuatan/1.JPG",
+                image: "/proses-pembuatan/1.png",
               },
               {
                 step: "02",
                 title: "Pengerjaan oleh Pengrajin Ahli",
                 description:
                   "Dari sketsa menjadi wujud nyata, setiap detail dibentuk oleh tangan pengrajin berpengalaman. Mereka bekerja dengan ketenangan dan presisi, memadukan teknik tradisional dan sentuhan modern. Dalam setiap pukulan kecil, tersimpan rasa hormat terhadap alam dan nilai luhur warisan budaya.",
-                image: "/proses-pembuatan/2.jpg",
+                image: "/proses-pembuatan/2.png",
               },
               {
                 step: "03",
                 title: "Penyempurnaan Akhir",
                 description:
                   "Tahap terakhir adalah perwujudan dari ketelitian dan cinta terhadap hasil terbaik. Setiap karya melalui proses finishing dan quality control yang cermat, hingga tercipta perhiasan yang halus, nyaman dikenakan, dan memancarkan keanggunan alami dari setiap sisi.",
-                image: "/proses-pembuatan/3.jpg",
+                image: "/proses-pembuatan/3.png",
               },
             ].map((process, index) => (
               <motion.div
@@ -756,7 +756,7 @@ export default function TentangPage() {
                 icon: Sparkles,
                 title: "🌸 Makna yang Menemani",
                 description:
-                  "Setiap karya Dahayu diciptakan untuk lebih dari sekadar dikenakan. Ia hadir sebagai pengingat lembut bahwa keindahan sejati hidup di dalam diri, dan setiap langkah perempuan layak dirayakan dengan makna.",
+                  "Setiap karya Dahayu diciptakan tidak sekadar untuk dikenakan. Kehadirannya menjadi pengingat bahwa keindahan sesungguhnya berasal dari dalam diri, dan setiap perjalanan perempuan pantas dihormati serta dirayakan.",
               },
             ].map((reason, index) => (
               <motion.div

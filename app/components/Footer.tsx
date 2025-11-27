@@ -67,31 +67,65 @@ export default function Footer() {
               <h3 className="text-4xl font-serif font-light text-gold">
                 Dahayu Jewelry
               </h3>
+
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="w-2 h-2 bg-gold transform rotate-45"
               />
             </div>
+            <p className="text-cream/70 text-base md:text-lg font-light leading-relaxed mb-6">
+              Setiap karya adalah perjalanan yang dirancang dengan hati.
+              <br className="hidden md:block" />
+              Bukan sekadar perhiasan, tetapi cara kami merayakan ketulusan
+              dalam bentuk yang abadi.
+            </p>
 
             {/* Address */}
-            <div className="flex items-start gap-3 text-cream/60 mb-6">
+            <div className="flex items-start gap-3 text-cream/60 mb-4">
               <MapPin className="w-5 h-5 text-gold mt-1 shrink-0" />
-              <div className="font-sans text-sm">
+              <div className="font-sans text-sm leading-relaxed">
+                <p className="text-cream/80 font-medium mb-1">
+                  Product dititipkan pada alamat:
+                </p>
+                <p>Rumah Mode Andara</p>
                 <p>Jl. Tukad Barito No. 58X</p>
-                <p>Panjer Denpasar</p>
-                <p>Bali – Indonesia</p>
+                <p>Panjer Denpasar, Bali – Indonesia</p>
               </div>
             </div>
 
-            {/* Phone */}
-            <a
-              href="tel:+6285723368060"
-              className="flex items-center gap-3 text-cream/60 hover:text-gold transition-colors duration-300 mb-8"
-            >
-              <Phone className="w-5 h-5" />
-              <span className="font-sans text-sm">+62 857-2336-8060</span>
-            </a>
+            {/* Phone Numbers */}
+            <div className="space-y-2 mb-6">
+              <a
+                href="tel:+6285723368060"
+                className="flex items-center gap-3 text-cream/60 hover:text-gold transition-colors duration-300"
+              >
+                <Phone className="w-5 h-5" />
+                <div className="font-sans text-sm">
+                  <span className="text-cream/80 block">Dahayu:</span>
+                  <span>+62 857-2336-8060</span>
+                </div>
+              </a>
+              <a
+                href="tel:+628113857299"
+                className="flex items-center gap-3 text-cream/60 hover:text-gold transition-colors duration-300"
+              >
+                <Phone className="w-5 h-5" />
+                <div className="font-sans text-sm">
+                  <span className="text-cream/80 block">Andara:</span>
+                  <span>+62 811-3857-299</span>
+                </div>
+              </a>
+            </div>
+
+            {/* Note */}
+            <div className="bg-gold/5 border border-gold/20 rounded-lg p-3 mb-6">
+              <p className="text-cream/70 text-xs font-sans leading-relaxed">
+                ⭐ <span className="font-medium text-cream/80">NB:</span> Untuk
+                memastikan stock tersedia, silahkan menghubungi nomor Dahayu di
+                atas.
+              </p>
+            </div>
 
             {/* Social Links */}
             <div className="flex gap-4">

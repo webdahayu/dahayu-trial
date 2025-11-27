@@ -94,9 +94,9 @@ export default function KontakPage() {
               {[
                 {
                   icon: MapPin,
-                  title: "📍 Alamat",
+                  title: "📍 Product dititpkan pada alamat",
                   content:
-                    "Jl. Tukad Barito No. 58X, Panjer Denpasar, Bali – Indonesia",
+                    "Rumah Mode Andara, Jl. Tukad Barito No. 58X, Panjer Denpasar, Bali – Indonesia",
                   link: "https://maps.google.com",
                 },
                 {
@@ -106,10 +106,17 @@ export default function KontakPage() {
                   link: "tel:+6285723368060",
                 },
                 {
-                  icon: Mail,
-                  title: "✉️ Email",
-                  content: "info@dahayujewelry.com",
-                  link: "mailto:info@dahayujewelry.com",
+                  icon: Phone,
+                  title: "📞 Telepon Andara",
+                  content: "+62 811-3857-299",
+                  link: "tel:+628113857299",
+                },
+                {
+                  icon: Phone,
+                  title: "⭐ NB",
+                  content:
+                    "Untuk memastikan stock tersedia, silahkan menghubungi nomor Dahayu di atas.",
+                  link: "tel:+628113857299",
                 },
               ].map((item, index) => (
                 <motion.div
