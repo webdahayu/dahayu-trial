@@ -101,22 +101,15 @@ export default function KontakPage() {
                 },
                 {
                   icon: Phone,
-                  title: "📞 Telepon",
-                  content: "+62 857-2336-8060",
-                  link: "tel:+6285723368060",
-                },
-                {
-                  icon: Phone,
                   title: "📞 Telepon Andara",
                   content: "+62 811-3857-299",
                   link: "tel:+628113857299",
                 },
                 {
                   icon: Phone,
-                  title: "⭐ NB",
-                  content:
-                    "Untuk memastikan stock tersedia, silahkan menghubungi nomor Dahayu di atas.",
-                  link: "tel:+628113857299",
+                  title: "📞 Telepon Dahayu",
+                  content: "+62 857-2336-8060",
+                  link: "tel:+6285723368060",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -156,6 +149,21 @@ export default function KontakPage() {
                   </div>
                 </motion.div>
               ))}
+
+              {/* Note Box */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-gold/5 border border-gold/20 rounded-2xl p-6"
+              >
+                <p className="text-cream/70 text-sm font-sans leading-relaxed">
+                  ⭐ <span className="font-medium text-cream/80">NB:</span>{" "}
+                  Untuk memastikan stock tersedia, silahkan menghubungi nomor
+                  Dahayu di atas.
+                </p>
+              </motion.div>
             </div>
 
             {/* WhatsApp CTA */}

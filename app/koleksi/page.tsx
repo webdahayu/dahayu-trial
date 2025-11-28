@@ -101,7 +101,8 @@ export default function KoleksiPage() {
               <span className="text-gradient">Koleksi Premium</span>
             </h1>
             <p className="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto font-light">
-              Temukan perhiasan emas eksklusif yang dirancang khusus untuk Anda
+              Temukan perhiasan perak 925 lapisan emas 18 karat eksklusif yang
+              dirancang khusus untuk Anda.
             </p>
           </motion.div>
         </div>

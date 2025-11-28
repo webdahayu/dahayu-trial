@@ -62,7 +62,7 @@ export const products: Product[] = [
     weight: "——— gram",
     dimensions: "——— cm",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Desain elegan & minimalis",
       "Handmade oleh pengrajin Bali",
       "Cocok untuk daily clean aesthetic",
@@ -88,7 +88,7 @@ export const products: Product[] = [
       "Lengkung calla lily yang halus lambang kemurnian, ketenangan, dan elegansi feminin. Desainnya lembut dan artistik, meniru bentuk kelopak calla lily yang ikonik.",
     material: "Silver 925 dengan lapisan 18K Gold Plated",
     weight: "——— gram",
-    dimensions: "———",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
       "Silver 925 + 18K Gold Plated",
       "Desain lengkung yang lembut & anggun",
@@ -97,7 +97,7 @@ export const products: Product[] = [
       "Box eksklusif Dahayu",
     ],
     story:
-      "Calla lily adalah bunga yang dikenal sebagai simbol keanggunan murni. Lengkung kelopaknya yang sederhana namun indah mencerminkan keteduhan hati seorang perempuan. Cincin ini diciptakan untuk menghadirkan energi tersebut: anggun, tenang, dan penuh kelembutan.\n\n✨ Pengalaman Pemakai\n• Memberikan aura tenang & refined\n• Membuat tangan tampak lebih elegan\n• Banyak pemakai merasa lebih fokus & lembut\n• Cocok untuk daily elegance\n\nMengapa Memilih Calla Lilis Ring\nJika Anda menyukai keindahan yang simple namun meaningful, cincin ini adalah pilihan terbaik. Desainnya anggun, maknanya dalam, pesonanya lembut.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu valid).",
+      "Calla lily adalah bunga yang dikenal sebagai simbol keanggunan murni. Lengkung kelopaknya yang sederhana namun indah mencerminkan keteduhan hati seorang perempuan. Cincin ini diciptakan untuk menghadirkan energi tersebut: anggun, tenang, dan penuh kelembutan.\n\n✨ Pengalaman yang Dirasakan Pemakai\n• Memberikan aura tenang & refined\n• Membuat tangan tampak lebih elegan\n• Banyak pemakai merasa lebih fokus & lembut\n• Cocok untuk daily elegance\n\nMengapa Memilih Calla Lilis Ring\nJika Anda menyukai keindahan yang simple namun meaningful, cincin ini adalah pilihan terbaik. Desainnya anggun, maknanya dalam, pesonanya lembut.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu valid).",
   },
 
   // Brooches (Bros)
@@ -126,7 +126,7 @@ export const products: Product[] = [
       "Box eksklusif Dahayu",
     ],
     story:
-      '"Danayu" adalah gambaran energi perempuan yang lembut namun kuat. Desainnya yang mengalir mencerminkan hati yang bijaksana dan langkah yang penuh ketenangan. Brooch ini dibuat untuk melengkapi penampilan dengan sentuhan damai dan elegan.\n\n✨ Pengalaman Pemakai\n• Terlihat lebih dewasa & berkelas\n• Memberikan aura feminin yang calm\n• Cocok untuk event formal & traditional\n• Menambah kewibawaan tanpa terlihat keras\n\nMengapa Memilih Danayu Brooch Gold\nBrooch ini adalah pilihan tepat bagi perempuan yang ingin tampil anggun dan berkarakter, dengan sentuhan simbolik yang mendalam.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu perawatan valid).',
+      '"Danayu" adalah gambaran energi perempuan yang lembut namun kuat. Desainnya yang mengalir mencerminkan hati yang bijaksana dan langkah yang penuh ketenangan. Brooch ini dibuat untuk melengkapi penampilan dengan sentuhan damai dan elegan.\n\n✨ Pengalaman yang Dirasakan Pemakai\n• Terlihat lebih dewasa & berkelas\n• Memberikan aura feminin yang calm\n• Cocok untuk event formal & traditional\n• Menambah kewibawaan tanpa terlihat keras\n\nMengapa Memilih Danayu Brooch Gold\nBrooch ini adalah pilihan tepat bagi perempuan yang ingin tampil anggun dan berkarakter, dengan sentuhan simbolik yang mendalam.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu perawatan valid).',
   },
 
   // Earrings (Anting/Subeng)
@@ -144,7 +144,7 @@ export const products: Product[] = [
     ],
     description:
       "Keanggunan yang mengalir lembut anting berlekuk halus yang memancarkan keindahan feminin yang natural.",
-    material: "Silver 925 + 18K Gold Plated",
+    material: "Mutiara air tawar + Silver 925 dengan lapisan emas 18 Karat",
     weight: "———",
     dimensions: "———",
     features: [
@@ -152,10 +152,10 @@ export const products: Product[] = [
       "Handmade oleh pengrajin Bali",
       "Desain feminin yang halus",
       "Box eksklusif Dahayu",
-      "Silver 925 + 18K Gold Plated",
+      "Mutiara air tawar + Silver 925 dengan lapisan emas 18 Karat",
     ],
     story:
-      "Danayu menggambarkan energi yang lembut, mengalir, dan penuh ketenangan. Anting ini mengikuti lekuk organik yang membingkai wajah dengan indah.\n\n✨ Pengalaman Pemakai\n• Menambah aura feminin lembut\n• Wajah tampak lebih halus dan fresh\n• Memberikan rasa percaya diri natural\n• Sangat cocok untuk daily elegance\n\nMengapa Memilih Danayu Earrings Gold\nAnting ini cocok untuk Anda yang menyukai desain flowy dan feminin. Elegan tanpa berlebihan, lembut tanpa kehilangan karakter.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu valid).",
+      "Danayu menggambarkan energi yang lembut, mengalir, dan penuh ketenangan. Anting ini mengikuti lekuk organik yang membingkai wajah dengan indah.\n\n✨ Pengalaman yang Dirasakan Pemakai\n• Menambah aura feminin lembut\n• Wajah tampak lebih halus dan fresh\n• Memberikan rasa percaya diri natural\n• Sangat cocok untuk daily elegance\n\nMengapa Memilih Danayu Earrings Gold\nAnting ini cocok untuk Anda yang menyukai desain flowy dan feminin. Elegan tanpa berlebihan, lembut tanpa kehilangan karakter.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu valid).",
   },
   {
     id: 7,
@@ -221,11 +221,11 @@ export const products: Product[] = [
     ],
     description:
       "Tunas kecil yang baru tumbuh simbol awal baru, semangat yang diperbarui, dan harapan yang lembut. Desainnya pendek, simpel, tetapi sarat makna. Bentuk pucuk kecil ini menjadi simbol pertumbuhan yang paling murni.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Simbol pertumbuhan & harapan",
       "Ukuran kecil cocok untuk daily wear",
       "Tidak berat di telinga",
@@ -252,7 +252,7 @@ export const products: Product[] = [
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Simbol pertumbuhan & pembaruan",
       "Ringan dan nyaman",
       "Handmade oleh pengrajin Bali",
@@ -275,11 +275,11 @@ export const products: Product[] = [
     ],
     description:
       "Keindahan bunga yang mekar lembut anting yang memancarkan aura feminin, hangat, dan sangat elegan. Bentuk kelopaknya dirancang untuk memberikan tampilan wajah yang lembut dan bercahaya. Emas 18K memberikan kesan klasik yang timeless.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Detail kelopak yang feminin",
       "Cocok untuk acara formal & daily elegan",
       "Handmade oleh pengrajin Bali",
@@ -306,7 +306,7 @@ export const products: Product[] = [
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Desain lembut dan minimalis",
       "Nyaman untuk dipakai harian",
       "Handmade oleh pengrajin Bali",
@@ -329,11 +329,11 @@ export const products: Product[] = [
     ],
     description:
       'Keindahan klasik yang memancarkan kebahagiaan lembut anting dengan desain timeless yang menguatkan rasa percaya diri pemakainya. "Sachi" bermakna kebahagiaan murni. Versi klasik ini menghadirkan bentuk sederhana yang tetap berkarakter.',
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Desain timeless & elegan",
       "Cocok untuk daily sophisticated look",
       "Handmade oleh pengrajin Bali",
@@ -383,11 +383,11 @@ export const products: Product[] = [
     ],
     description:
       "Keanggunan calla lily yang lembut dipadukan dengan gemstone pink yang manis simbol kemurnian, femininitas, dan keteduhan hati. Subeng tradisional Bali dipadukan dengan bentuk calla lily yang modern, menghasilkan karya artistik yang kaya budaya sekaligus elegan.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Pink Gemstone + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Pink Gemstone + Silver 925 dengan lapisan emas 18 Karat",
       "Sentuhan gemstone pink yang feminin",
       "Menggabungkan tradisi Bali & estetika modern",
       "Handmade oleh pengrajin terampil",
@@ -410,11 +410,11 @@ export const products: Product[] = [
     ],
     description:
       "Kemurnian dan keanggunan dalam satu karya perpaduan subeng tradisional Bali dengan lekuk calla lily serta sentuhan white gemstone yang jernih. Perhiasan ini menghadirkan kombinasi budaya dan estetika modern, memancarkan kedamaian serta kelembutan hati yang elegan.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "White Gemstone + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + lapisan 18K Gold Plated",
+      "White Gemstone + Silver 925 dengan lapisan emas 18 Karat",
       "White gemstone yang melambangkan kemurnian & keteduhan",
       "Paduan subeng Bali dan gaya modern",
       "Handmade oleh pengrajin Bali",
@@ -437,11 +437,11 @@ export const products: Product[] = [
     ],
     description:
       'Simbol cahaya batin yang memancar subeng dengan desain berkilau lembut yang menghadirkan pesona klasik dan modern sekaligus. "Gantari" berarti cahaya. Karena itu, subeng ini dirancang untuk memancarkan keanggunan yang halus namun nyata.',
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Desain yang memancarkan kesan bercahaya",
       "Elegan untuk acara formal dan tradisional",
       "Handmade oleh pengrajin Bali",
@@ -468,7 +468,7 @@ export const products: Product[] = [
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Desain bercahaya lembut",
       "Tampilan clean & modern",
       "Handmade oleh pengrajin Bali",
@@ -480,8 +480,8 @@ export const products: Product[] = [
   {
     id: 19,
     name: "Subeng Calla Lilis Silver",
-    price: "Rp. 625.000,-",
-    priceNumber: 625000,
+    price: "Rp. 695.000,-",
+    priceNumber: 695000,
     category: "Anting",
     image: "/Subeng Calla Lilis Silver/1.png",
     images: [
@@ -496,7 +496,7 @@ export const products: Product[] = [
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Desain calla lily yang lembut & anggun",
       "Menggabungkan tradisi Bali & estetika modern",
       "Handmade oleh pengrajin terampil",
@@ -519,11 +519,12 @@ export const products: Product[] = [
     ],
     description:
       "Simbol kejernihan hati tetesan air yang melambangkan keheningan, keikhlasan, dan kedalaman perasaan. Desain Tear Drop Gold menghadirkan bentuk tetesan yang halus dan minimalis, memancarkan aura lembut namun penuh makna.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material:
+      "blue Cubic Zirconia + beberapa pecahan kecil Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "blue Cubic Zirconia + beberapa pecahan kecil Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Desain minimalis & elegan",
       "Sangat ringan dan nyaman",
       "Handmade oleh pengrajin Bali",
@@ -546,11 +547,11 @@ export const products: Product[] = [
     ],
     description:
       'Keindahan teratai yang mekar lembut simbol pencerahan, ketenangan, dan perjalanan jiwa yang menemukan cahayanya. "Tunjung" berarti teratai dalam bahasa Bali, bunga yang tumbuh dari air tenang dan mekar penuh kedamaian.',
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Mutiara air tawar + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Mutiara air tawar + Silver 925 dengan lapisan emas 18 Karat",
       "Desain lotus/teratai yang penuh simbol pencerahan",
       "Tampilan feminin & elegan",
       "Handmade oleh pengrajin Bali",
@@ -577,7 +578,7 @@ export const products: Product[] = [
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Desain minimalis & elegan",
       "Sangat ringan dan nyaman",
       "Handmade oleh pengrajin Bali",
@@ -605,7 +606,7 @@ export const products: Product[] = [
       "Keanggunan lotus yang mekar dalam bentuk cincin simbol pencerahan, ketenangan, dan cahaya batin. Desain kelopak lotus yang lembut menciptakan siluet feminin dan elegan di jari Anda.",
     material: "Silver 925 dengan lapisan 18K Gold Plated",
     weight: "——— gram",
-    dimensions: "Ring size custom",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
       "Silver 925 + 18K Gold Plated",
       "Detail kelopak lotus yang presisi",
@@ -614,7 +615,7 @@ export const products: Product[] = [
       "Box eksklusif Dahayu",
     ],
     story:
-      "Blooming Lotus Ring Gold membawa makna yang sama dengan anting versinya: ketenangan, pencerahan, dan keindahan yang tumbuh dari dalam. Cincin ini adalah pengingat lembut bahwa setiap hari adalah kesempatan untuk mekar lebih indah.\n\n✨ Pengalaman Pemakai\n• Memberikan rasa tenang & mindful\n• Membuat tangan terlihat lebih elegan\n• Cocok untuk berbagai gaya: casual, formal, traditional\n• Banyak pemakai merasa lebih grounded dan percaya diri\n\nMengapa Memilih Blooming Lotus Ring Gold\nCincin ini sempurna untuk Anda yang ingin membawa makna pencerahan dalam keseharian. Desainnya timeless dan dapat dipadukan dengan perhiasan lainnya.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu valid).",
+      "Blooming Lotus Ring Gold membawa makna yang sama dengan anting versinya: ketenangan, pencerahan, dan keindahan yang tumbuh dari dalam. Cincin ini adalah pengingat lembut bahwa setiap hari adalah kesempatan untuk mekar lebih indah.\n\n✨ Pengalaman yang Dirasakan Pemakai\n• Memberikan rasa tenang & mindful\n• Membuat tangan terlihat lebih elegan\n• Cocok untuk berbagai gaya: casual, formal, traditional\n• Banyak pemakai merasa lebih grounded dan percaya diri\n\nMengapa Memilih Blooming Lotus Ring Gold\nCincin ini sempurna untuk Anda yang ingin membawa makna pencerahan dalam keseharian. Desainnya timeless dan dapat dipadukan dengan perhiasan lainnya.\n\nPerawatan & Garansi\nTermasuk 1x cleaning/replating, berlaku 1 tahun, (dengan kartu valid).",
   },
   {
     id: 24,
@@ -631,11 +632,11 @@ export const products: Product[] = [
     ],
     description:
       "Cincin bertema tunas kecil yang melambangkan pertumbuhan, harapan, dan keberanian memulai sesuatu yang baru. Desainnya lembut dan halus, menampilkan pucuk yang tampak seperti baru muncul dari tanah kecil namun penuh potensi.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
-    dimensions: "———",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Silver 925 dengan lapisan emas 18 Karat",
       "Desain simbol pertumbuhan",
       "Nyaman dipakai seharian",
       "Handmade oleh pengrajin Bali",
@@ -660,9 +661,9 @@ export const products: Product[] = [
       "Cincin bernuansa pucuk yang jernih dan minimalis simbol niat baru, keheningan, dan pertumbuhan yang lembut. Versi silver menghadirkan kesan clean, modern, dan sangat subtle.",
     material: "Silver 925",
     weight: "——— gram",
-    dimensions: "———",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
-      "Silver 925 premium",
+      "Silver 925 berkualitas premium",
       "Desain minimalis & penuh makna",
       "Tahan lama dan ringan dipakai",
       "Handmade oleh pengrajin Bali",
@@ -686,11 +687,11 @@ export const products: Product[] = [
     ],
     description:
       "Cincin bernuansa bunga mekar simbol cinta yang lembut, keindahan jiwa, dan keanggunan yang matang. Dengan desain kelopak yang terbuka indah, cincin ini membawa pesona klasik yang tak lekang waktu.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
-    dimensions: "———",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Detail kelopak presisi dan artistik",
       "Nyaman dipakai sehari-hari",
       "Handmade oleh pengrajin Bali",
@@ -701,7 +702,7 @@ export const products: Product[] = [
   },
   {
     id: 27,
-    name: "Sachi Klasik Ring Gold",
+    name: "Sachi Klasik Red Cubic Zirconia Ring Gold",
     price: "Rp. 375.000,-",
     priceNumber: 375000,
     category: "Cincin",
@@ -714,11 +715,11 @@ export const products: Product[] = [
     ],
     description:
       "Cincin dengan desain klasik yang memancarkan kebahagiaan murni lembut, elegan, dan penuh ketenangan. Bentuknya sederhana namun penuh pesona, cocok untuk pemakai yang menyukai keanggunan tanpa drama.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Red Cubic Zirconia + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
-    dimensions: "———",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
-      "Silver 925 + 18K Gold Plated",
+      "Red Cubic Zirconia + Silver 925 dengan lapisan emas 18 Karat",
       "Ringan dan nyaman",
       "Desain klasik yang selalu relevan",
       "Handmade oleh pengrajin Bali",
@@ -743,7 +744,7 @@ export const products: Product[] = [
       "Pin bernuansa bulir padi simbol kemakmuran, rasa syukur, dan harmoni dengan alam. Sri Pin menghadirkan bentuk bulir padi yang ramping dan elegan, memberikan sentuhan makna pada busana formal maupun tradisional.",
     material: "Silver 925 dengan lapisan 18K Gold Plated",
     weight: "——— gram",
-    dimensions: "———",
+    dimensions: "Ukuran Cincin : Adjustable (dapat disesuaikan)",
     features: [
       "Silver 925 + 18K Gold Plated",
       "Detail bulir padi yang simbolis",
@@ -770,11 +771,11 @@ export const products: Product[] = [
     ],
     description:
       "Simbol bunga yang mekar dengan penuh keanggunan menghadirkan rasa hangat, cinta lembut, dan karakter klasik yang tak lekang waktu. Desain brooch ini menonjolkan bentuk kelopak yang berkembang sempurna, memadukan unsur tradisional dan modern dalam satu karya yang elegan.",
-    material: "Silver 925 dengan lapisan 18K Gold Plated",
+    material: "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
     weight: "——— gram",
     dimensions: "———",
     features: [
-      "Silver 925 + 18K Gold Plated berkualitas tinggi",
+      "Zirkonia kubik + Silver 925 dengan lapisan emas 18 Karat",
       "Detail kelopak yang rapi dan artistik",
       "Cocok untuk kebaya, blazer, atau dress klasik",
       "Handmade oleh pengrajin Bali",

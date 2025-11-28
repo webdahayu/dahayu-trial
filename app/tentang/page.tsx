@@ -134,8 +134,8 @@ export default function TentangPage() {
               <span className="text-gradient">Tentang Dahayu</span>
             </h1>
             <p className="text-cream/70 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
-              Warisan keindahan Bali dalam setiap karya emas yang kami ciptakan
-              dengan penuh dedikasi dan keahlian tradisional
+              Perhiasan yang menyimpan cerita Nusantara, dari sentuhan alam,
+              untuk energi percaya diri setiap perempuan.
             </p>
           </motion.div>
         </div>
@@ -625,21 +625,21 @@ export default function TentangPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                step: "01",
+                step: "",
                 title: "Desain & Konsep",
                 description:
                   "Setiap perhiasan Dahayu berawal dari intuisi dan filosofi. Kami menggambar setiap lekuk dengan penuh kesadaran, terinspirasi oleh bentuk-bentuk alam yang melambangkan kekuatan dan kelembutan. Bukan sekadar desain, tetapi ungkapan rasa dan keindahan yang hidup dalam setiap detail.",
                 image: "/proses-pembuatan/1.png",
               },
               {
-                step: "02",
+                step: "",
                 title: "Pengerjaan oleh Pengrajin Ahli",
                 description:
                   "Dari sketsa menjadi wujud nyata, setiap detail dibentuk oleh tangan pengrajin berpengalaman. Mereka bekerja dengan ketenangan dan presisi, memadukan teknik tradisional dan sentuhan modern. Dalam setiap pukulan kecil, tersimpan rasa hormat terhadap alam dan nilai luhur warisan budaya.",
                 image: "/proses-pembuatan/2.png",
               },
               {
-                step: "03",
+                step: "",
                 title: "Penyempurnaan Akhir",
                 description:
                   "Tahap terakhir adalah perwujudan dari ketelitian dan cinta terhadap hasil terbaik. Setiap karya melalui proses finishing dan quality control yang cermat, hingga tercipta perhiasan yang halus, nyaman dikenakan, dan memancarkan keanggunan alami dari setiap sisi.",
@@ -664,16 +664,6 @@ export default function TentangPage() {
                     transition={{ duration: 0.7 }}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent" />
-
-                  <motion.div
-                    className="absolute top-6 left-6 w-16 h-16 bg-gold rounded-full flex items-center justify-center"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <span className="text-dark text-xl font-light">
-                      {process.step}
-                    </span>
-                  </motion.div>
                 </div>
 
                 <h3 className="text-2xl font-serif font-light text-cream mb-3">
