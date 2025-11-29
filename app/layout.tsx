@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dahayujewelry.com"),
   title: {
     default:
-      "Dahayu Jewelry - Perhiasan Emas Premium Bali | Jewelry with a Soul",
+      "Dahayu Jewelry – Perhiasan Perak 925 Lapisan Emas 18 karat Premium",
     template: "%s | Dahayu Jewelry",
   },
   description:
-    "Dahayu Jewelry menghadirkan perhiasan emas 18K dan perak 925 premium yang dibuat dengan tangan oleh pengrajin Bali. Setiap karya terinspirasi dari keindahan alam dan filosofi kehidupan. Koleksi cincin, anting, dan bros eksklusif dengan makna mendalam.",
+    "Dahayu Jewelry menghadirkan perhiasan perak 925 dengan lapisan emas 18 karat premium yang dibuat dengan tangan oleh pengrajin Bali. Setiap karya terinspirasi dari keindahan alam dan filosofi kehidupan. Koleksi cincin, anting, dan bros eksklusif dengan makna mendalam.",
   keywords: [
     "perhiasan bali",
     "emas 18k",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://dahayujewelry.com",
     siteName: "Dahayu Jewelry",
-    title: "Dahayu Jewelry - Perhiasan Emas Premium Bali | Jewelry with a Soul",
+    title: "Dahayu Jewelry – Perhiasan Perak 925 Lapisan Emas 18 karat Premium",
     description:
-      "Perhiasan emas 18K dan perak 925 premium handmade dari Bali. Setiap karya dibuat dengan makna mendalam, menggabungkan keindahan alam dan filosofi kehidupan.",
+      "Perhiasan perak 925 dengan lapisan emas 18 karat premium handmade dari Bali. Setiap karya dibuat dengan makna mendalam, menggabungkan keindahan alam dan filosofi kehidupan.",
     images: [
       {
         url: "/logo.png",
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dahayu Jewelry - Perhiasan Emas Premium Bali",
+    title: "Dahayu Jewelry – Perhiasan Perak 925 Lapisan Emas 18 karat Premium",
     description:
-      "Perhiasan emas 18K dan perak 925 premium handmade dari Bali dengan makna mendalam.",
+      "Perhiasan perak 925 dengan lapisan emas 18 karat premium handmade dari Bali dengan makna mendalam.",
     images: ["/logo.png"],
     creator: "@dahayu.jewelry",
   },
