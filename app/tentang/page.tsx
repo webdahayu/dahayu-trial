@@ -629,14 +629,14 @@ export default function TentangPage() {
                 title: "Desain & Konsep",
                 description:
                   "Setiap perhiasan Dahayu berawal dari intuisi dan filosofi. Kami menggambar setiap lekuk dengan penuh kesadaran, terinspirasi oleh bentuk-bentuk alam yang melambangkan kekuatan dan kelembutan. Bukan sekadar desain, tetapi ungkapan rasa dan keindahan yang hidup dalam setiap detail.",
-                image: "/proses-pembuatan/1.png",
+                image: "/proses-pembuatan/2.png",
               },
               {
                 step: "",
                 title: "Pengerjaan oleh Pengrajin Ahli",
                 description:
                   "Dari sketsa menjadi wujud nyata, setiap detail dibentuk oleh tangan pengrajin berpengalaman. Mereka bekerja dengan ketenangan dan presisi, memadukan teknik tradisional dan sentuhan modern. Dalam setiap pukulan kecil, tersimpan rasa hormat terhadap alam dan nilai luhur warisan budaya.",
-                image: "/proses-pembuatan/2.png",
+                image: "/proses-pembuatan/1.png",
               },
               {
                 step: "",
